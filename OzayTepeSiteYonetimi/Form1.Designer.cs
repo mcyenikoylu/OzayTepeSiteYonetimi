@@ -102,6 +102,16 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.customersNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.customersLabelControl = new DevExpress.XtraEditors.LabelControl();
+            this.sOdemelerResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colID1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAy = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colYil = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOdemeTarihi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKayitTarihi1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTutar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKisiID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOdemeTipi = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
@@ -137,6 +147,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtGirisTarihi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGirisTarihi.Properties)).BeginInit();
             this.customersNavigationPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sOdemelerResultBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -465,8 +476,11 @@
             // 
             // colKiraciEvsahibi
             // 
+            this.colKiraciEvsahibi.Caption = "Kiracı mı?";
             this.colKiraciEvsahibi.FieldName = "KiraciEvsahibi";
             this.colKiraciEvsahibi.Name = "colKiraciEvsahibi";
+            this.colKiraciEvsahibi.Visible = true;
+            this.colKiraciEvsahibi.VisibleIndex = 6;
             // 
             // colKayitTarihi
             // 
@@ -506,6 +520,7 @@
             // 
             // gridControl2
             // 
+            this.gridControl2.DataSource = this.sOdemelerResultBindingSource;
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl2.Location = new System.Drawing.Point(2, 2);
             this.gridControl2.MainView = this.gridView2;
@@ -518,6 +533,16 @@
             // 
             // gridView2
             // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colID1,
+            this.colAy,
+            this.colYil,
+            this.colOdemeTarihi,
+            this.colKayitTarihi1,
+            this.colAciklama,
+            this.colTutar,
+            this.colKisiID,
+            this.colOdemeTipi});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             // 
@@ -780,6 +805,73 @@
             this.customersLabelControl.TabIndex = 1;
             this.customersLabelControl.Text = "Customers";
             // 
+            // sOdemelerResultBindingSource
+            // 
+            this.sOdemelerResultBindingSource.DataSource = typeof(OzayTepeSiteYonetimi.S_Odemeler_Result);
+            // 
+            // colID1
+            // 
+            this.colID1.FieldName = "ID";
+            this.colID1.Name = "colID1";
+            this.colID1.Visible = true;
+            this.colID1.VisibleIndex = 0;
+            // 
+            // colAy
+            // 
+            this.colAy.FieldName = "Ay";
+            this.colAy.Name = "colAy";
+            this.colAy.Visible = true;
+            this.colAy.VisibleIndex = 1;
+            // 
+            // colYil
+            // 
+            this.colYil.FieldName = "Yil";
+            this.colYil.Name = "colYil";
+            this.colYil.Visible = true;
+            this.colYil.VisibleIndex = 2;
+            // 
+            // colOdemeTarihi
+            // 
+            this.colOdemeTarihi.FieldName = "OdemeTarihi";
+            this.colOdemeTarihi.Name = "colOdemeTarihi";
+            this.colOdemeTarihi.Visible = true;
+            this.colOdemeTarihi.VisibleIndex = 3;
+            // 
+            // colKayitTarihi1
+            // 
+            this.colKayitTarihi1.FieldName = "KayitTarihi";
+            this.colKayitTarihi1.Name = "colKayitTarihi1";
+            this.colKayitTarihi1.Visible = true;
+            this.colKayitTarihi1.VisibleIndex = 4;
+            // 
+            // colAciklama
+            // 
+            this.colAciklama.FieldName = "Aciklama";
+            this.colAciklama.Name = "colAciklama";
+            this.colAciklama.Visible = true;
+            this.colAciklama.VisibleIndex = 5;
+            // 
+            // colTutar
+            // 
+            this.colTutar.FieldName = "Tutar";
+            this.colTutar.Name = "colTutar";
+            this.colTutar.Visible = true;
+            this.colTutar.VisibleIndex = 6;
+            // 
+            // colKisiID
+            // 
+            this.colKisiID.FieldName = "KisiID";
+            this.colKisiID.Name = "colKisiID";
+            this.colKisiID.Visible = true;
+            this.colKisiID.VisibleIndex = 7;
+            // 
+            // colOdemeTipi
+            // 
+            this.colOdemeTipi.FieldName = "OdemeTipi";
+            this.colOdemeTipi.Name = "colOdemeTipi";
+            this.colOdemeTipi.Visible = true;
+            this.colOdemeTipi.VisibleIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -790,6 +882,7 @@
             this.Controls.Add(this.officeNavigationBar);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Ribbon = this.ribbonControl;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -834,6 +927,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtGirisTarihi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGirisTarihi.Properties)).EndInit();
             this.customersNavigationPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sOdemelerResultBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -907,5 +1001,15 @@
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.PanelControl panelControl3;
+        private System.Windows.Forms.BindingSource sOdemelerResultBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colID1;
+        private DevExpress.XtraGrid.Columns.GridColumn colAy;
+        private DevExpress.XtraGrid.Columns.GridColumn colYil;
+        private DevExpress.XtraGrid.Columns.GridColumn colOdemeTarihi;
+        private DevExpress.XtraGrid.Columns.GridColumn colKayitTarihi1;
+        private DevExpress.XtraGrid.Columns.GridColumn colAciklama;
+        private DevExpress.XtraGrid.Columns.GridColumn colTutar;
+        private DevExpress.XtraGrid.Columns.GridColumn colKisiID;
+        private DevExpress.XtraGrid.Columns.GridColumn colOdemeTipi;
     }
 }

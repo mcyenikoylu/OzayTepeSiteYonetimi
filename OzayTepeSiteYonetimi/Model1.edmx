@@ -10,6 +10,10 @@
         <Function Name="S_Kisiler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
+        <Function Name="S_Odemeler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KisiID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="S_OdemeTipi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="SiteDBModelStoreContainer" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -21,6 +25,10 @@
           </FunctionImport>
           <FunctionImport Name="S_Bloklar" ReturnType="Collection(SiteDBModel.S_Bloklar_Result)" />
           <FunctionImport Name="S_Daireler" ReturnType="Collection(SiteDBModel.S_Daireler_Result)" />
+          <FunctionImport Name="S_Odemeler" ReturnType="Collection(SiteDBModel.S_Odemeler_Result)">
+          <Parameter Name="KisiID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="S_OdemeTipi" ReturnType="Collection(SiteDBModel.S_OdemeTipi_Result)" />
         </EntityContainer>
         <ComplexType Name="S_Kisiler_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -32,6 +40,7 @@
           <Property Type="DateTime" Name="DaireGirisTarihi" Nullable="true" />
           <Property Type="DateTime" Name="DaireCikisTarihi" Nullable="true" />
           <Property Type="Boolean" Name="OturuyorAyrildi" Nullable="true" />
+          <Property Type="String" Name="Notlar" Nullable="true" MaxLength="500" />
           </ComplexType>
         <ComplexType Name="S_Bloklar_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -40,6 +49,21 @@
         <ComplexType Name="S_Daireler_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="DaireNo" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="S_OdemeTipi_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="OdemeAdi" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="S_Odemeler_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Ay" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="Yil" Nullable="true" MaxLength="4" />
+          <Property Type="DateTime" Name="OdemeTarihi" Nullable="true" />
+          <Property Type="DateTime" Name="KayitTarihi" Nullable="true" />
+          <Property Type="String" Name="Aciklama" Nullable="true" MaxLength="250" />
+          <Property Type="Decimal" Name="Tutar" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Int32" Name="KisiID" Nullable="true" />
+          <Property Type="Int32" Name="OdemeTipi" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -59,6 +83,7 @@
                 <ScalarProperty Name="DaireGirisTarihi" ColumnName="DaireGirisTarihi" />
                 <ScalarProperty Name="DaireCikisTarihi" ColumnName="DaireCikisTarihi" />
                 <ScalarProperty Name="OturuyorAyrildi" ColumnName="OturuyorAyrildi" />
+                <ScalarProperty Name="Notlar" ColumnName="Notlar" />
                 </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -75,6 +100,29 @@
               <ComplexTypeMapping TypeName="SiteDBModel.S_Daireler_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DaireNo" ColumnName="DaireNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Odemeler" FunctionName="SiteDBModel.Store.S_Odemeler" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SiteDBModel.S_Odemeler_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ay" ColumnName="Ay" />
+                <ScalarProperty Name="Yil" ColumnName="Yil" />
+                <ScalarProperty Name="OdemeTarihi" ColumnName="OdemeTarihi" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+                <ScalarProperty Name="KisiID" ColumnName="KisiID" />
+                <ScalarProperty Name="OdemeTipi" ColumnName="OdemeTipi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_OdemeTipi" FunctionName="SiteDBModel.Store.S_OdemeTipi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SiteDBModel.S_OdemeTipi_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OdemeAdi" ColumnName="OdemeAdi" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

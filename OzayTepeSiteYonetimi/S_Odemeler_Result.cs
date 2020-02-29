@@ -11,17 +11,16 @@ namespace OzayTepeSiteYonetimi
 {
     using System;
     
-    public partial class S_Kisiler_Result
+    public partial class S_Odemeler_Result
     {
         public int ID { get; set; }
-        public string AdiSoyadi { get; set; }
-        public Nullable<int> BlokAdiID { get; set; }
-        public Nullable<int> DaireAdiID { get; set; }
-        public Nullable<bool> KiraciEvsahibi { get; set; }
+        public string Ay { get; set; }
+        public string Yil { get; set; }
+        public Nullable<System.DateTime> OdemeTarihi { get; set; }
         public Nullable<System.DateTime> KayitTarihi { get; set; }
-        public Nullable<System.DateTime> DaireGirisTarihi { get; set; }
-        public Nullable<System.DateTime> DaireCikisTarihi { get; set; }
-        public Nullable<bool> OturuyorAyrildi { get; set; }
-        public string Notlar { get; set; }
+        public string Aciklama { get; set; }
+        public Nullable<decimal> Tutar { get; set; }
+        public Nullable<int> KisiID { get; set; }
+        public Nullable<int> OdemeTipi { get; set; }
     }
 }

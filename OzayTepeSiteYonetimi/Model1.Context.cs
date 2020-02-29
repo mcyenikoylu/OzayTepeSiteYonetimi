@@ -46,5 +46,19 @@ namespace OzayTepeSiteYonetimi
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<S_Daireler_Result>("S_Daireler");
         }
+    
+        public virtual ObjectResult<S_Odemeler_Result> S_Odemeler(Nullable<int> kisiID)
+        {
+            var kisiIDParameter = kisiID.HasValue ?
+                new ObjectParameter("KisiID", kisiID) :
+                new ObjectParameter("KisiID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<S_Odemeler_Result>("S_Odemeler", kisiIDParameter);
+        }
+    
+        public virtual ObjectResult<S_OdemeTipi_Result> S_OdemeTipi()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<S_OdemeTipi_Result>("S_OdemeTipi");
+        }
     }
 }
