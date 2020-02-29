@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SiteDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="S_Bloklar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="S_Daireler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="S_Kisiler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="SiteDBModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SiteDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SiteDBEntities2" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="S_Kisiler" ReturnType="Collection(SiteDBModel.S_Kisiler_Result)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="S_Bloklar" ReturnType="Collection(SiteDBModel.S_Bloklar_Result)" />
+          <FunctionImport Name="S_Daireler" ReturnType="Collection(SiteDBModel.S_Daireler_Result)" />
+        </EntityContainer>
+        <ComplexType Name="S_Kisiler_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="AdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="BlokAdiID" Nullable="true" />
+          <Property Type="Int32" Name="DaireAdiID" Nullable="true" />
+          <Property Type="Boolean" Name="KiraciEvsahibi" Nullable="true" />
+          <Property Type="DateTime" Name="KayitTarihi" Nullable="true" />
+          <Property Type="DateTime" Name="DaireGirisTarihi" Nullable="true" />
+          <Property Type="DateTime" Name="DaireCikisTarihi" Nullable="true" />
+          <Property Type="Boolean" Name="OturuyorAyrildi" Nullable="true" />
+          </ComplexType>
+        <ComplexType Name="S_Bloklar_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="BlokAdi" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="S_Daireler_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="DaireNo" Nullable="true" MaxLength="10" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SiteDBModelStoreContainer" CdmEntityContainer="SiteDBEntities2" >
+          <FunctionImportMapping FunctionImportName="S_Kisiler" FunctionName="SiteDBModel.Store.S_Kisiler">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SiteDBModel.S_Kisiler_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AdiSoyadi" ColumnName="AdiSoyadi" />
+                <ScalarProperty Name="BlokAdiID" ColumnName="BlokAdiID" />
+                <ScalarProperty Name="DaireAdiID" ColumnName="DaireAdiID" />
+                <ScalarProperty Name="KiraciEvsahibi" ColumnName="KiraciEvsahibi" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="DaireGirisTarihi" ColumnName="DaireGirisTarihi" />
+                <ScalarProperty Name="DaireCikisTarihi" ColumnName="DaireCikisTarihi" />
+                <ScalarProperty Name="OturuyorAyrildi" ColumnName="OturuyorAyrildi" />
+                </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Bloklar" FunctionName="SiteDBModel.Store.S_Bloklar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SiteDBModel.S_Bloklar_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BlokAdi" ColumnName="BlokAdi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="S_Daireler" FunctionName="SiteDBModel.Store.S_Daireler">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SiteDBModel.S_Daireler_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DaireNo" ColumnName="DaireNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
