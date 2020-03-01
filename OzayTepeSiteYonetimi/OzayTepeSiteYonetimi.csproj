@@ -133,6 +133,7 @@
     <None Include="Properties\DataSources\S_Daireler_Result.datasource" />
     <None Include="Properties\DataSources\S_Kisiler_Result.datasource" />
     <None Include="Properties\DataSources\S_Odemeler_Result.datasource" />
+    <None Include="Properties\DataSources\S_OdemeTipi_Result.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

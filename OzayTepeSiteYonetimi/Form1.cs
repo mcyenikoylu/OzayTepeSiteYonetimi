@@ -38,6 +38,8 @@ namespace OzayTepeSiteYonetimi
             var daireler = db.S_Daireler().ToList();
             cmbDaireNo.Properties.DataSource = daireler;
             repositoryItemLookUpEdit2.DataSource = daireler;
+            var odemeTipi = db.S_OdemeTipi().ToList();
+            repositoryItemLookUpEdit3.DataSource = odemeTipi;
         }
 
         private void gridView1_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
@@ -47,37 +49,37 @@ namespace OzayTepeSiteYonetimi
 
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            int i = e.RowHandle;
-            string id = gridView1.GetRowCellValue(i, "ID").ToString();
-            if (id != "" || id != null) {
-                txtAdSoyad.EditValue = gridView1.GetRowCellValue(i, "AdiSoyadi").ToString();
-                cmbBlokAdi.EditValue = gridView1.GetRowCellValue(i, "BlokAdiID");
-                cmbDaireNo.EditValue = gridView1.GetRowCellValue(i, "DaireAdiID");
-                dtGirisTarihi.EditValue = gridView1.GetRowCellValue(i, "DaireGirisTarihi");
-                dtCikisTarihi.EditValue = gridView1.GetRowCellValue(i, "DaireCikisTarihi");
-                bool kiraciEvSahibi = Convert.ToBoolean(gridView1.GetRowCellValue(i, "KiraciEvsahibi"));
-                if (kiraciEvSahibi)
-                {
-                    rbKiraci.Checked = true;
-                    rbEvSahibi.Checked = false;
-                }
-                else
-                {
-                    rbKiraci.Checked = false;
-                    rbEvSahibi.Checked = true;
-                }
-                bool oturuyorAyrildi = Convert.ToBoolean(gridView1.GetRowCellValue(i, "OturuyorAyrildi"));
-                if (oturuyorAyrildi)
-                {
-                    rbOturuyor.Checked = true;
-                    rbAyrildi.Checked = false;
-                }
-                else
-                {
-                    rbOturuyor.Checked = false;
-                    rbAyrildi.Checked = true;
-                }
-            }
+            //int i = e.RowHandle;
+            //string id = gridView1.GetRowCellValue(i, "ID").ToString();
+            //if (id != "" || id != null) {
+            //    txtAdSoyad.EditValue = gridView1.GetRowCellValue(i, "AdiSoyadi").ToString();
+            //    cmbBlokAdi.EditValue = gridView1.GetRowCellValue(i, "BlokAdiID");
+            //    cmbDaireNo.EditValue = gridView1.GetRowCellValue(i, "DaireAdiID");
+            //    dtGirisTarihi.EditValue = gridView1.GetRowCellValue(i, "DaireGirisTarihi");
+            //    dtCikisTarihi.EditValue = gridView1.GetRowCellValue(i, "DaireCikisTarihi");
+            //    bool kiraciEvSahibi = Convert.ToBoolean(gridView1.GetRowCellValue(i, "KiraciEvsahibi"));
+            //    if (kiraciEvSahibi)
+            //    {
+            //        rbKiraci.Checked = true;
+            //        rbEvSahibi.Checked = false;
+            //    }
+            //    else
+            //    {
+            //        rbKiraci.Checked = false;
+            //        rbEvSahibi.Checked = true;
+            //    }
+            //    bool oturuyorAyrildi = Convert.ToBoolean(gridView1.GetRowCellValue(i, "OturuyorAyrildi"));
+            //    if (oturuyorAyrildi)
+            //    {
+            //        rbOturuyor.Checked = true;
+            //        rbAyrildi.Checked = false;
+            //    }
+            //    else
+            //    {
+            //        rbOturuyor.Checked = false;
+            //        rbAyrildi.Checked = true;
+            //    }
+            //}
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -133,6 +135,9 @@ namespace OzayTepeSiteYonetimi
                     rbOturuyor.Checked = false;
                     rbAyrildi.Checked = true;
                 }
+                SiteDBEntities2 db = new SiteDBEntities2();
+                var odeme = db.S_Odemeler(Convert.ToInt32(id)).ToList();
+                gridControl2.DataSource = odeme;
             }
         }
     }
