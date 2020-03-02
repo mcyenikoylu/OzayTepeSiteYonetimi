@@ -29,6 +29,10 @@ namespace OzayTepeSiteYonetimi
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            RibbonMenuGridAyarlari uc_gridAyarlari = new RibbonMenuGridAyarlari(ribbonPage.Text);
+            uc_gridAyarlari.GrdView = gridView1;
+            ribbonControl.MergeRibbon(uc_gridAyarlari.ribbonControl1);
+
             SiteDBEntities2 db = new SiteDBEntities2();
             var list = db.S_Kisiler(-1).ToList();
             gridControl1.DataSource = list;
@@ -139,6 +143,11 @@ namespace OzayTepeSiteYonetimi
                 var odeme = db.S_Odemeler(Convert.ToInt32(id)).ToList();
                 gridControl2.DataSource = odeme;
             }
+        }
+
+        private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+
         }
     }
 }

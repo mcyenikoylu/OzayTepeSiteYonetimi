@@ -52,8 +52,12 @@
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.kisilerNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarYeniKisiEkle = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGridAyarKaydet = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarOdemeTipiEkle = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarKisilerListesi = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGridAyarKaydet = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarBlokTan = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarDaireTan = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarOdemeTipiTan = new DevExpress.XtraNavBar.NavBarItem();
             this.cariIslemleriNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.employeesNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -88,11 +92,14 @@
             this.colAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.colTutar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.colOdemeAdi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.sOdemeTipiResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colKisiID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOdemeTipi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoExEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
@@ -104,8 +111,6 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit1 = new DevExpress.XtraEditors.MemoEdit();
-            this.btnVazgec = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmbDaireNo = new DevExpress.XtraEditors.LookUpEdit();
             this.cmbBlokAdi = new DevExpress.XtraEditors.LookUpEdit();
             this.txtAdSoyad = new DevExpress.XtraEditors.TextEdit();
@@ -117,6 +122,8 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.customersNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.customersLabelControl = new DevExpress.XtraEditors.LabelControl();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
@@ -139,6 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sOdemelerResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sOdemeTipiResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoExEdit1)).BeginInit();
@@ -169,9 +177,10 @@
             this.employeesBarButtonItem,
             this.customersBarButtonItem,
             this.barButtonItem1,
-            this.barButtonItem2});
+            this.barButtonItem2,
+            this.barButtonItem3});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 48;
+            this.ribbonControl.MaxItemId = 49;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -286,7 +295,11 @@
             this.navBarControl.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarYeniKisiEkle,
             this.navBarGridAyarKaydet,
-            this.navBarKisilerListesi});
+            this.navBarKisilerListesi,
+            this.navBarOdemeTipiEkle,
+            this.navBarBlokTan,
+            this.navBarDaireTan,
+            this.navBarOdemeTipiTan});
             this.navBarControl.Location = new System.Drawing.Point(0, 143);
             this.navBarControl.Name = "navBarControl";
             this.navBarControl.OptionsNavPane.ExpandedWidth = 165;
@@ -302,8 +315,12 @@
             this.kisilerNavBarGroup.Expanded = true;
             this.kisilerNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarYeniKisiEkle),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarOdemeTipiEkle),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarKisilerListesi),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarGridAyarKaydet),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarKisilerListesi)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarBlokTan),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarDaireTan),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarOdemeTipiTan)});
             this.kisilerNavBarGroup.Name = "kisilerNavBarGroup";
             // 
             // navBarYeniKisiEkle
@@ -313,17 +330,41 @@
             this.navBarYeniKisiEkle.Name = "navBarYeniKisiEkle";
             this.navBarYeniKisiEkle.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarYeniKisiEkle_LinkClicked);
             // 
-            // navBarGridAyarKaydet
+            // navBarOdemeTipiEkle
             // 
-            this.navBarGridAyarKaydet.Caption = "Grid Ayarlarını Kaydet";
-            this.navBarGridAyarKaydet.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGridAyarKaydet.ImageOptions.SmallImage")));
-            this.navBarGridAyarKaydet.Name = "navBarGridAyarKaydet";
+            this.navBarOdemeTipiEkle.Caption = "Yeni Ödeme Ekle";
+            this.navBarOdemeTipiEkle.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarOdemeTipiEkle.ImageOptions.SmallImage")));
+            this.navBarOdemeTipiEkle.Name = "navBarOdemeTipiEkle";
             // 
             // navBarKisilerListesi
             // 
             this.navBarKisilerListesi.Caption = "Kişiler Listesi";
             this.navBarKisilerListesi.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarKisilerListesi.ImageOptions.SmallImage")));
             this.navBarKisilerListesi.Name = "navBarKisilerListesi";
+            // 
+            // navBarGridAyarKaydet
+            // 
+            this.navBarGridAyarKaydet.Caption = "Grid Ayarlarını Kaydet";
+            this.navBarGridAyarKaydet.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGridAyarKaydet.ImageOptions.SmallImage")));
+            this.navBarGridAyarKaydet.Name = "navBarGridAyarKaydet";
+            // 
+            // navBarBlokTan
+            // 
+            this.navBarBlokTan.Caption = "Blok Tanımları";
+            this.navBarBlokTan.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarBlokTan.ImageOptions.SmallImage")));
+            this.navBarBlokTan.Name = "navBarBlokTan";
+            // 
+            // navBarDaireTan
+            // 
+            this.navBarDaireTan.Caption = "Daire Tanımları";
+            this.navBarDaireTan.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDaireTan.ImageOptions.SmallImage")));
+            this.navBarDaireTan.Name = "navBarDaireTan";
+            // 
+            // navBarOdemeTipiTan
+            // 
+            this.navBarOdemeTipiTan.Caption = "Ödeme Tipi Tanımları";
+            this.navBarOdemeTipiTan.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarOdemeTipiTan.ImageOptions.SmallImage")));
+            this.navBarOdemeTipiTan.Name = "navBarOdemeTipiTan";
             // 
             // cariIslemleriNavBarGroup
             // 
@@ -366,7 +407,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(625, 453);
-            this.splitContainerControl1.SplitterPosition = 385;
+            this.splitContainerControl1.SplitterPosition = 452;
             this.splitContainerControl1.TabIndex = 1;
             // 
             // gridControl1
@@ -380,7 +421,7 @@
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
             this.repositoryItemLookUpEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(235, 453);
+            this.gridControl1.Size = new System.Drawing.Size(168, 453);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -407,7 +448,9 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsBehavior.ReadOnly = true;
-            this.gridView1.OptionsScrollAnnotations.ShowSelectedRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsScrollAnnotations.ShowFocusedRow = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsScrollAnnotations.ShowSelectedRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
@@ -523,9 +566,9 @@
             // 
             this.panelControl2.Controls.Add(this.gridControl2);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 281);
+            this.panelControl2.Location = new System.Drawing.Point(0, 146);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(385, 172);
+            this.panelControl2.Size = new System.Drawing.Size(452, 307);
             this.panelControl2.TabIndex = 22;
             // 
             // gridControl2
@@ -538,8 +581,9 @@
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.repositoryItemMemoEdit1,
-            this.repositoryItemMemoExEdit1});
-            this.gridControl2.Size = new System.Drawing.Size(381, 168);
+            this.repositoryItemMemoExEdit1,
+            this.repositoryItemSpinEdit1});
+            this.gridControl2.Size = new System.Drawing.Size(448, 303);
             this.gridControl2.TabIndex = 20;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -553,7 +597,6 @@
             this.gridView2.Appearance.FixedLine.Options.UseTextOptions = true;
             this.gridView2.Appearance.FixedLine.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.gridView2.Appearance.FixedLine.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridView2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.gridView2.ColumnPanelRowHeight = 0;
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID1,
@@ -565,17 +608,14 @@
             this.colTutar,
             this.colOdemeAdi,
             this.colKisiID,
-            this.colOdemeTipi});
-            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.colOdemeTipi,
+            this.gridColumn1,
+            this.gridColumn2});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsBehavior.Editable = false;
-            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView2.OptionsView.ShowFooter = true;
             this.gridView2.OptionsView.ShowGroupPanel = false;
-            this.gridView2.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
-            this.gridView2.OptionsView.ShowIndicator = false;
-            this.gridView2.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView2.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView2_FocusedRowChanged);
             // 
             // colID1
             // 
@@ -586,25 +626,22 @@
             // 
             this.colYil.FieldName = "Yil";
             this.colYil.Name = "colYil";
-            this.colYil.Visible = true;
-            this.colYil.VisibleIndex = 0;
             this.colYil.Width = 35;
             // 
             // colAy
             // 
             this.colAy.FieldName = "Ay";
             this.colAy.Name = "colAy";
-            this.colAy.Visible = true;
-            this.colAy.VisibleIndex = 1;
             this.colAy.Width = 35;
             // 
             // colOdemeTarihi
             // 
+            this.colOdemeTarihi.DisplayFormat.FormatString = "d";
+            this.colOdemeTarihi.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colOdemeTarihi.FieldName = "OdemeTarihi";
             this.colOdemeTarihi.Name = "colOdemeTarihi";
             this.colOdemeTarihi.Visible = true;
-            this.colOdemeTarihi.VisibleIndex = 2;
-            this.colOdemeTarihi.Width = 70;
+            this.colOdemeTarihi.VisibleIndex = 3;
             // 
             // colKayitTarihi1
             // 
@@ -616,12 +653,13 @@
             this.colAciklama.AppearanceCell.Options.UseTextOptions = true;
             this.colAciklama.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.colAciklama.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colAciklama.Caption = "Açıklama";
             this.colAciklama.ColumnEdit = this.repositoryItemMemoEdit1;
             this.colAciklama.FieldName = "Aciklama";
             this.colAciklama.Name = "colAciklama";
             this.colAciklama.Visible = true;
-            this.colAciklama.VisibleIndex = 3;
-            this.colAciklama.Width = 67;
+            this.colAciklama.VisibleIndex = 4;
+            this.colAciklama.Width = 77;
             // 
             // repositoryItemMemoEdit1
             // 
@@ -629,22 +667,30 @@
             // 
             // colTutar
             // 
+            this.colTutar.ColumnEdit = this.repositoryItemSpinEdit1;
             this.colTutar.FieldName = "Tutar";
             this.colTutar.Name = "colTutar";
             this.colTutar.Visible = true;
-            this.colTutar.VisibleIndex = 4;
-            this.colTutar.Width = 35;
+            this.colTutar.VisibleIndex = 2;
+            this.colTutar.Width = 60;
+            // 
+            // repositoryItemSpinEdit1
+            // 
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
             // 
             // colOdemeAdi
             // 
-            this.colOdemeAdi.Caption = "Ödeme Adı";
+            this.colOdemeAdi.Caption = "Ödeme Tipi";
             this.colOdemeAdi.ColumnEdit = this.repositoryItemLookUpEdit3;
-            this.colOdemeAdi.FieldName = "OdemeTipi";
+            this.colOdemeAdi.FieldName = "OdemeTipiID";
             this.colOdemeAdi.Name = "colOdemeAdi";
+            this.colOdemeAdi.OptionsColumn.AllowEdit = false;
             this.colOdemeAdi.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.colOdemeAdi.Visible = true;
-            this.colOdemeAdi.VisibleIndex = 5;
-            this.colOdemeAdi.Width = 107;
+            this.colOdemeAdi.VisibleIndex = 1;
             // 
             // repositoryItemLookUpEdit3
             // 
@@ -667,8 +713,24 @@
             // 
             // colOdemeTipi
             // 
-            this.colOdemeTipi.FieldName = "OdemeTipi";
+            this.colOdemeTipi.FieldName = "OdemeTipiID";
             this.colOdemeTipi.Name = "colOdemeTipi";
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Vade Tarihi";
+            this.gridColumn1.FieldName = "VadeTarihi";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 76;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Güncelleme Tarihi";
+            this.gridColumn2.FieldName = "GuncellemeTarihi";
+            this.gridColumn2.Name = "gridColumn2";
             // 
             // repositoryItemMemoExEdit1
             // 
@@ -684,8 +746,6 @@
             this.panelControl1.Controls.Add(this.labelControl6);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Controls.Add(this.textEdit1);
-            this.panelControl1.Controls.Add(this.btnVazgec);
-            this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Controls.Add(this.cmbDaireNo);
             this.panelControl1.Controls.Add(this.cmbBlokAdi);
             this.panelControl1.Controls.Add(this.txtAdSoyad);
@@ -698,7 +758,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(385, 281);
+            this.panelControl1.Size = new System.Drawing.Size(452, 146);
             this.panelControl1.TabIndex = 21;
             // 
             // panelControl4
@@ -706,7 +766,7 @@
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl4.Controls.Add(this.rbOturuyor);
             this.panelControl4.Controls.Add(this.rbAyrildi);
-            this.panelControl4.Location = new System.Drawing.Point(73, 206);
+            this.panelControl4.Location = new System.Drawing.Point(206, 106);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(167, 26);
             this.panelControl4.TabIndex = 22;
@@ -738,7 +798,7 @@
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl3.Controls.Add(this.rbKiraci);
             this.panelControl3.Controls.Add(this.rbEvSahibi);
-            this.panelControl3.Location = new System.Drawing.Point(73, 131);
+            this.panelControl3.Location = new System.Drawing.Point(206, 31);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(167, 26);
             this.panelControl3.TabIndex = 21;
@@ -767,7 +827,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(38, 161);
+            this.labelControl6.Location = new System.Drawing.Point(171, 61);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(29, 13);
             this.labelControl6.TabIndex = 20;
@@ -783,30 +843,11 @@
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(73, 159);
+            this.textEdit1.Location = new System.Drawing.Point(206, 59);
             this.textEdit1.MenuManager = this.ribbonControl;
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(167, 46);
             this.textEdit1.TabIndex = 17;
-            // 
-            // btnVazgec
-            // 
-            this.btnVazgec.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnVazgec.ImageOptions.Image")));
-            this.btnVazgec.Location = new System.Drawing.Point(5, 237);
-            this.btnVazgec.Name = "btnVazgec";
-            this.btnVazgec.Size = new System.Drawing.Size(102, 38);
-            this.btnVazgec.TabIndex = 8;
-            this.btnVazgec.Text = "Vazgeç";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(113, 237);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(102, 38);
-            this.simpleButton1.TabIndex = 7;
-            this.simpleButton1.Text = "Kaydet";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // cmbDaireNo
             // 
@@ -936,6 +977,17 @@
             this.customersLabelControl.TabIndex = 1;
             this.customersLabelControl.Text = "Customers";
             // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Grid Ayarlar";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Gruplama";
+            this.barButtonItem3.Id = 48;
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -975,6 +1027,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sOdemelerResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sOdemeTipiResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoExEdit1)).EndInit();
@@ -1033,8 +1086,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarYeniKisiEkle;
         private DevExpress.XtraNavBar.NavBarItem navBarGridAyarKaydet;
         private DevExpress.XtraNavBar.NavBarItem navBarKisilerListesi;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton btnVazgec;
         private System.Windows.Forms.BindingSource sKisilerResultBindingSource1;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colAdiSoyadi;
@@ -1084,5 +1135,14 @@
         private System.Windows.Forms.BindingSource sOdemeTipiResultBindingSource;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit repositoryItemMemoExEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraNavBar.NavBarItem navBarOdemeTipiEkle;
+        private DevExpress.XtraNavBar.NavBarItem navBarDaireTan;
+        private DevExpress.XtraNavBar.NavBarItem navBarBlokTan;
+        private DevExpress.XtraNavBar.NavBarItem navBarOdemeTipiTan;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
     }
 }

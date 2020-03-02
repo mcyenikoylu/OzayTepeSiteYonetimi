@@ -63,7 +63,9 @@
           <Property Type="String" Name="Aciklama" Nullable="true" MaxLength="250" />
           <Property Type="Decimal" Name="Tutar" Nullable="true" Precision="6" Scale="2" />
           <Property Type="Int32" Name="KisiID" Nullable="true" />
-          <Property Type="Int32" Name="OdemeTipi" Nullable="true" />
+          <Property Type="Int32" Name="OdemeTipiID" Nullable="true" />
+          <Property Type="DateTime" Name="VadeTarihi" Nullable="true" />
+          <Property Type="DateTime" Name="GuncellemeTarihi" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -114,7 +116,9 @@
                 <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
                 <ScalarProperty Name="Tutar" ColumnName="Tutar" />
                 <ScalarProperty Name="KisiID" ColumnName="KisiID" />
-                <ScalarProperty Name="OdemeTipi" ColumnName="OdemeTipi" />
+                <ScalarProperty Name="OdemeTipiID" ColumnName="OdemeTipiID" />
+                <ScalarProperty Name="VadeTarihi" ColumnName="VadeTarihi" />
+                <ScalarProperty Name="GuncellemeTarihi" ColumnName="GuncellemeTarihi" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

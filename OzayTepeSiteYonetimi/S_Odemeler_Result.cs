@@ -21,6 +21,8 @@ namespace OzayTepeSiteYonetimi
         public string Aciklama { get; set; }
         public Nullable<decimal> Tutar { get; set; }
         public Nullable<int> KisiID { get; set; }
-        public Nullable<int> OdemeTipi { get; set; }
+        public Nullable<int> OdemeTipiID { get; set; }
+        public Nullable<System.DateTime> VadeTarihi { get; set; }
+        public Nullable<System.DateTime> GuncellemeTarihi { get; set; }
     }
 }
