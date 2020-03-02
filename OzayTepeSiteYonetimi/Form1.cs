@@ -99,6 +99,8 @@ namespace OzayTepeSiteYonetimi
         private void navBarYeniKisiEkle_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
 
+            YeniKisiEkle frm = new YeniKisiEkle(kisiid);
+            frm.ShowDialog();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -106,6 +108,7 @@ namespace OzayTepeSiteYonetimi
 
         }
 
+        int kisiid = -1;
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             int i = e.FocusedRowHandle;
@@ -142,12 +145,13 @@ namespace OzayTepeSiteYonetimi
                 SiteDBEntities2 db = new SiteDBEntities2();
                 var odeme = db.S_Odemeler(Convert.ToInt32(id)).ToList();
                 gridControl2.DataSource = odeme;
+                kisiid = Convert.ToInt32(id);
             }
         }
 
         private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-
+            //Mesaj.MesajVer("Kayıt eklenmiştir.", Mesaj.MesajTipi.Onay, this);
         }
     }
 }
