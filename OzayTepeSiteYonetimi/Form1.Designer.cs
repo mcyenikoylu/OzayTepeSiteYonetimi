@@ -30,11 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinRibbonGalleryBarItem = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
@@ -103,24 +98,9 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoExEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.rbOturuyor = new System.Windows.Forms.RadioButton();
-            this.rbAyrildi = new System.Windows.Forms.RadioButton();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.rbKiraci = new System.Windows.Forms.RadioButton();
-            this.rbEvSahibi = new System.Windows.Forms.RadioButton();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.MemoEdit();
-            this.cmbDaireNo = new DevExpress.XtraEditors.LookUpEdit();
-            this.cmbBlokAdi = new DevExpress.XtraEditors.LookUpEdit();
-            this.txtAdSoyad = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.dtCikisTarihi = new DevExpress.XtraEditors.DateEdit();
-            this.dtGirisTarihi = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.lblKiraci = new DevExpress.XtraEditors.LabelControl();
+            this.lblAdSoyad = new DevExpress.XtraEditors.LabelControl();
+            this.lblBlok = new DevExpress.XtraEditors.LabelControl();
             this.customersNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.customersLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -152,18 +132,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoExEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
-            this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbDaireNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbBlokAdi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAdSoyad.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCikisTarihi.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCikisTarihi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGirisTarihi.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGirisTarihi.Properties)).BeginInit();
             this.customersNavigationPage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -227,7 +195,6 @@
             this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -236,7 +203,6 @@
             this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barButtonItem3
             // 
@@ -459,8 +425,6 @@
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
-            this.gridView1.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridView1_SelectionChanged);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // colID
@@ -572,9 +536,9 @@
             // 
             this.panelControl2.Controls.Add(this.gridControl2);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 146);
+            this.panelControl2.Location = new System.Drawing.Point(0, 131);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(452, 307);
+            this.panelControl2.Size = new System.Drawing.Size(452, 322);
             this.panelControl2.TabIndex = 22;
             // 
             // gridControl2
@@ -589,7 +553,7 @@
             this.repositoryItemMemoEdit1,
             this.repositoryItemMemoExEdit1,
             this.repositoryItemSpinEdit1});
-            this.gridControl2.Size = new System.Drawing.Size(448, 303);
+            this.gridControl2.Size = new System.Drawing.Size(448, 318);
             this.gridControl2.TabIndex = 20;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -747,218 +711,44 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.panelControl4);
-            this.panelControl1.Controls.Add(this.panelControl3);
-            this.panelControl1.Controls.Add(this.labelControl6);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.textEdit1);
-            this.panelControl1.Controls.Add(this.cmbDaireNo);
-            this.panelControl1.Controls.Add(this.cmbBlokAdi);
-            this.panelControl1.Controls.Add(this.txtAdSoyad);
-            this.panelControl1.Controls.Add(this.labelControl2);
-            this.panelControl1.Controls.Add(this.labelControl5);
-            this.panelControl1.Controls.Add(this.labelControl3);
-            this.panelControl1.Controls.Add(this.dtCikisTarihi);
-            this.panelControl1.Controls.Add(this.dtGirisTarihi);
-            this.panelControl1.Controls.Add(this.labelControl4);
+            this.panelControl1.Controls.Add(this.lblKiraci);
+            this.panelControl1.Controls.Add(this.lblAdSoyad);
+            this.panelControl1.Controls.Add(this.lblBlok);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(452, 146);
+            this.panelControl1.Size = new System.Drawing.Size(452, 131);
             this.panelControl1.TabIndex = 21;
             // 
-            // panelControl4
+            // lblKiraci
             // 
-            this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl4.Controls.Add(this.rbOturuyor);
-            this.panelControl4.Controls.Add(this.rbAyrildi);
-            this.panelControl4.Location = new System.Drawing.Point(206, 106);
-            this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(167, 26);
-            this.panelControl4.TabIndex = 22;
+            this.lblKiraci.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lblKiraci.Appearance.Options.UseFont = true;
+            this.lblKiraci.Location = new System.Drawing.Point(28, 91);
+            this.lblKiraci.Name = "lblKiraci";
+            this.lblKiraci.Size = new System.Drawing.Size(38, 19);
+            this.lblKiraci.TabIndex = 21;
+            this.lblKiraci.Text = "Kiraci";
             // 
-            // rbOturuyor
+            // lblAdSoyad
             // 
-            this.rbOturuyor.AutoSize = true;
-            this.rbOturuyor.Location = new System.Drawing.Point(5, 5);
-            this.rbOturuyor.Name = "rbOturuyor";
-            this.rbOturuyor.Size = new System.Drawing.Size(69, 17);
-            this.rbOturuyor.TabIndex = 18;
-            this.rbOturuyor.TabStop = true;
-            this.rbOturuyor.Text = "Oturuyor";
-            this.rbOturuyor.UseVisualStyleBackColor = true;
+            this.lblAdSoyad.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold);
+            this.lblAdSoyad.Appearance.Options.UseFont = true;
+            this.lblAdSoyad.Location = new System.Drawing.Point(28, 21);
+            this.lblAdSoyad.Name = "lblAdSoyad";
+            this.lblAdSoyad.Size = new System.Drawing.Size(148, 39);
+            this.lblAdSoyad.TabIndex = 1;
+            this.lblAdSoyad.Text = "Ad Soyad";
             // 
-            // rbAyrildi
+            // lblBlok
             // 
-            this.rbAyrildi.AutoSize = true;
-            this.rbAyrildi.Location = new System.Drawing.Point(75, 5);
-            this.rbAyrildi.Name = "rbAyrildi";
-            this.rbAyrildi.Size = new System.Drawing.Size(54, 17);
-            this.rbAyrildi.TabIndex = 19;
-            this.rbAyrildi.TabStop = true;
-            this.rbAyrildi.Text = "Ayrıldı";
-            this.rbAyrildi.UseVisualStyleBackColor = true;
-            // 
-            // panelControl3
-            // 
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Controls.Add(this.rbKiraci);
-            this.panelControl3.Controls.Add(this.rbEvSahibi);
-            this.panelControl3.Location = new System.Drawing.Point(206, 31);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(167, 26);
-            this.panelControl3.TabIndex = 21;
-            // 
-            // rbKiraci
-            // 
-            this.rbKiraci.AutoSize = true;
-            this.rbKiraci.Location = new System.Drawing.Point(5, 5);
-            this.rbKiraci.Name = "rbKiraci";
-            this.rbKiraci.Size = new System.Drawing.Size(50, 17);
-            this.rbKiraci.TabIndex = 15;
-            this.rbKiraci.TabStop = true;
-            this.rbKiraci.Text = "Kiracı";
-            this.rbKiraci.UseVisualStyleBackColor = true;
-            // 
-            // rbEvSahibi
-            // 
-            this.rbEvSahibi.AutoSize = true;
-            this.rbEvSahibi.Location = new System.Drawing.Point(61, 5);
-            this.rbEvSahibi.Name = "rbEvSahibi";
-            this.rbEvSahibi.Size = new System.Drawing.Size(68, 17);
-            this.rbEvSahibi.TabIndex = 16;
-            this.rbEvSahibi.TabStop = true;
-            this.rbEvSahibi.Text = "Ev Sahibi";
-            this.rbEvSahibi.UseVisualStyleBackColor = true;
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(171, 61);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(29, 13);
-            this.labelControl6.TabIndex = 20;
-            this.labelControl6.Text = "Notlar";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(21, 9);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(46, 13);
-            this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "Ad Soyad";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(206, 59);
-            this.textEdit1.MenuManager = this.ribbonControl;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(167, 46);
-            this.textEdit1.TabIndex = 17;
-            // 
-            // cmbDaireNo
-            // 
-            this.cmbDaireNo.Location = new System.Drawing.Point(73, 58);
-            this.cmbDaireNo.MenuManager = this.ribbonControl;
-            this.cmbDaireNo.Name = "cmbDaireNo";
-            this.cmbDaireNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbDaireNo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DaireNo", "Daire No", 51, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.cmbDaireNo.Properties.DataSource = this.sDairelerResultBindingSource1;
-            this.cmbDaireNo.Properties.DisplayMember = "DaireNo";
-            this.cmbDaireNo.Properties.NullText = "";
-            this.cmbDaireNo.Properties.PopupSizeable = false;
-            this.cmbDaireNo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.cmbDaireNo.Properties.ValueMember = "ID";
-            this.cmbDaireNo.Size = new System.Drawing.Size(81, 20);
-            this.cmbDaireNo.TabIndex = 4;
-            // 
-            // cmbBlokAdi
-            // 
-            this.cmbBlokAdi.Location = new System.Drawing.Point(73, 32);
-            this.cmbBlokAdi.MenuManager = this.ribbonControl;
-            this.cmbBlokAdi.Name = "cmbBlokAdi";
-            this.cmbBlokAdi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbBlokAdi.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BlokAdi", "Blok Adi", 47, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.cmbBlokAdi.Properties.DataSource = this.sBloklarResultBindingSource;
-            this.cmbBlokAdi.Properties.DisplayMember = "BlokAdi";
-            this.cmbBlokAdi.Properties.NullText = "";
-            this.cmbBlokAdi.Properties.PopupSizeable = false;
-            this.cmbBlokAdi.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.cmbBlokAdi.Properties.ValueMember = "ID";
-            this.cmbBlokAdi.Size = new System.Drawing.Size(81, 20);
-            this.cmbBlokAdi.TabIndex = 2;
-            // 
-            // txtAdSoyad
-            // 
-            this.txtAdSoyad.Location = new System.Drawing.Point(73, 6);
-            this.txtAdSoyad.MenuManager = this.ribbonControl;
-            this.txtAdSoyad.Name = "txtAdSoyad";
-            this.txtAdSoyad.Size = new System.Drawing.Size(167, 20);
-            this.txtAdSoyad.TabIndex = 0;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(30, 35);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(37, 13);
-            this.labelControl2.TabIndex = 3;
-            this.labelControl2.Text = "Blok Adi";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(17, 113);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(50, 13);
-            this.labelControl5.TabIndex = 14;
-            this.labelControl5.Text = "Çıkış Tarihi";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(26, 61);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(41, 13);
-            this.labelControl3.TabIndex = 5;
-            this.labelControl3.Text = "Daire No";
-            // 
-            // dtCikisTarihi
-            // 
-            this.dtCikisTarihi.EditValue = null;
-            this.dtCikisTarihi.Location = new System.Drawing.Point(73, 110);
-            this.dtCikisTarihi.MenuManager = this.ribbonControl;
-            this.dtCikisTarihi.Name = "dtCikisTarihi";
-            this.dtCikisTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Clear, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Tarihi Sil", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.dtCikisTarihi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtCikisTarihi.Size = new System.Drawing.Size(100, 20);
-            this.dtCikisTarihi.TabIndex = 13;
-            // 
-            // dtGirisTarihi
-            // 
-            this.dtGirisTarihi.EditValue = null;
-            this.dtGirisTarihi.Location = new System.Drawing.Point(73, 84);
-            this.dtGirisTarihi.MenuManager = this.ribbonControl;
-            this.dtGirisTarihi.Name = "dtGirisTarihi";
-            this.dtGirisTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtGirisTarihi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtGirisTarihi.Size = new System.Drawing.Size(100, 20);
-            this.dtGirisTarihi.TabIndex = 11;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(18, 87);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(49, 13);
-            this.labelControl4.TabIndex = 12;
-            this.labelControl4.Text = "Giriş Tarihi";
+            this.lblBlok.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.lblBlok.Appearance.Options.UseFont = true;
+            this.lblBlok.Location = new System.Drawing.Point(28, 66);
+            this.lblBlok.Name = "lblBlok";
+            this.lblBlok.Size = new System.Drawing.Size(68, 19);
+            this.lblBlok.TabIndex = 3;
+            this.lblBlok.Text = "Blok Adi";
             // 
             // customersNavigationPage
             // 
@@ -1034,20 +824,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
-            this.panelControl4.ResumeLayout(false);
-            this.panelControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbDaireNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbBlokAdi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAdSoyad.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCikisTarihi.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCikisTarihi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGirisTarihi.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGirisTarihi.Properties)).EndInit();
             this.customersNavigationPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1076,13 +852,11 @@
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit txtAdSoyad;
+        private DevExpress.XtraEditors.LabelControl lblAdSoyad;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl lblBlok;
         private DevExpress.XtraNavBar.NavBarItem navBarYeniKisiEkle;
         private DevExpress.XtraNavBar.NavBarItem navBarGridAyarKaydet;
         private DevExpress.XtraNavBar.NavBarItem navBarKisilerListesi;
@@ -1097,29 +871,15 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDaireCikisTarihi;
         private DevExpress.XtraGrid.Columns.GridColumn colOturuyorAyrildi;
         private System.Windows.Forms.BindingSource sBloklarResultBindingSource;
-        private DevExpress.XtraEditors.DateEdit dtGirisTarihi;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.DateEdit dtCikisTarihi;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LookUpEdit cmbBlokAdi;
-        private DevExpress.XtraEditors.LookUpEdit cmbDaireNo;
         private System.Windows.Forms.BindingSource sDairelerResultBindingSource1;
         private DevExpress.XtraGrid.Columns.GridColumn colBlokAdi;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn colDaireAdi;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit2;
-        private System.Windows.Forms.RadioButton rbKiraci;
-        private System.Windows.Forms.RadioButton rbEvSahibi;
-        private DevExpress.XtraEditors.MemoEdit textEdit1;
-        private System.Windows.Forms.RadioButton rbAyrildi;
-        private System.Windows.Forms.RadioButton rbOturuyor;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.PanelControl panelControl4;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
         private System.Windows.Forms.BindingSource sOdemelerResultBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colID1;
         private DevExpress.XtraGrid.Columns.GridColumn colAy;
@@ -1144,5 +904,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarOdemeTipiTan;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraEditors.LabelControl lblKiraci;
     }
 }

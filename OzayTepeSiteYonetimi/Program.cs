@@ -20,7 +20,7 @@ namespace OzayTepeSiteYonetimi
             Application.SetCompatibleTextRenderingDefault(false);
 
             BonusSkins.Register();
-            Application.Run(new SplashScreen1());
+            Application.Run(new Form1());
         }
     }
 }

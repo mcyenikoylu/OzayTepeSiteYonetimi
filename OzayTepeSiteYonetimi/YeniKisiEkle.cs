@@ -29,6 +29,33 @@ namespace OzayTepeSiteYonetimi
             var daireler = db.S_Daireler().ToList();
             cmbDaireNo.Properties.DataSource = daireler;
             txtAdSoyad.EditValue = list.FirstOrDefault().AdiSoyadi;
+            cmbBlokAdi.EditValue = list.FirstOrDefault().BlokAdiID;
+            cmbDaireNo.EditValue = list.FirstOrDefault().DaireAdiID;
+            dtGirisTarihi.EditValue = list.FirstOrDefault().DaireGirisTarihi;
+            dtCikisTarihi.EditValue = list.FirstOrDefault().DaireCikisTarihi;
+            bool kiraciEvSahibi = (bool)list.FirstOrDefault().KiraciEvsahibi;
+            if (kiraciEvSahibi)
+            {
+                rbKiraci.Checked = true;
+                rbEvSahibi.Checked = false;
+            }
+            else
+            {
+                rbKiraci.Checked = false;
+                rbEvSahibi.Checked = true;
+            }
+            bool oturuyorAyrildi = (bool)list.FirstOrDefault().OturuyorAyrildi;
+            if (oturuyorAyrildi)
+            {
+                rbOturuyor.Checked = true;
+                rbAyrildi.Checked = false;
+            }
+            else
+            {
+                rbOturuyor.Checked = false;
+                rbAyrildi.Checked = true;
+            }
+            txtNotlar.EditValue = list.FirstOrDefault().Notlar;
         }
 
       

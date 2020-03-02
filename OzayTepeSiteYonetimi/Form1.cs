@@ -36,76 +36,19 @@ namespace OzayTepeSiteYonetimi
             SiteDBEntities2 db = new SiteDBEntities2();
             var list = db.S_Kisiler(-1).ToList();
             gridControl1.DataSource = list;
+
             var bloklar = db.S_Bloklar().ToList();
-            cmbBlokAdi.Properties.DataSource = bloklar;
             repositoryItemLookUpEdit1.DataSource = bloklar;
             var daireler = db.S_Daireler().ToList();
-            cmbDaireNo.Properties.DataSource = daireler;
             repositoryItemLookUpEdit2.DataSource = daireler;
             var odemeTipi = db.S_OdemeTipi().ToList();
             repositoryItemLookUpEdit3.DataSource = odemeTipi;
         }
 
-        private void gridView1_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
-        {
-            //int i = e.RowHandle;
-            //string id = gridView1.GetRowCellValue(i, "ID").ToString();
-            //if (id != "" || id != null) {
-            //    txtAdSoyad.EditValue = gridView1.GetRowCellValue(i, "AdiSoyadi").ToString();
-            //    cmbBlokAdi.EditValue = gridView1.GetRowCellValue(i, "BlokAdiID");
-            //    cmbDaireNo.EditValue = gridView1.GetRowCellValue(i, "DaireAdiID");
-            //    dtGirisTarihi.EditValue = gridView1.GetRowCellValue(i, "DaireGirisTarihi");
-            //    dtCikisTarihi.EditValue = gridView1.GetRowCellValue(i, "DaireCikisTarihi");
-            //    bool kiraciEvSahibi = Convert.ToBoolean(gridView1.GetRowCellValue(i, "KiraciEvsahibi"));
-            //    if (kiraciEvSahibi)
-            //    {
-            //        rbKiraci.Checked = true;
-            //        rbEvSahibi.Checked = false;
-            //    }
-            //    else
-            //    {
-            //        rbKiraci.Checked = false;
-            //        rbEvSahibi.Checked = true;
-            //    }
-            //    bool oturuyorAyrildi = Convert.ToBoolean(gridView1.GetRowCellValue(i, "OturuyorAyrildi"));
-            //    if (oturuyorAyrildi)
-            //    {
-            //        rbOturuyor.Checked = true;
-            //        rbAyrildi.Checked = false;
-            //    }
-            //    else
-            //    {
-            //        rbOturuyor.Checked = false;
-            //        rbAyrildi.Checked = true;
-            //    }
-            //}
-        }
-
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
         private void navBarYeniKisiEkle_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-
             YeniKisiEkle frm = new YeniKisiEkle(kisiid);
             frm.ShowDialog();
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-
         }
 
         int kisiid = -1;
@@ -115,33 +58,26 @@ namespace OzayTepeSiteYonetimi
             string id = gridView1.GetRowCellValue(i, "ID").ToString();
             if (id != "" || id != null)
             {
-                txtAdSoyad.EditValue = gridView1.GetRowCellValue(i, "AdiSoyadi").ToString();
-                cmbBlokAdi.EditValue = gridView1.GetRowCellValue(i, "BlokAdiID");
-                cmbDaireNo.EditValue = gridView1.GetRowCellValue(i, "DaireAdiID");
-                dtGirisTarihi.EditValue = gridView1.GetRowCellValue(i, "DaireGirisTarihi");
-                dtCikisTarihi.EditValue = gridView1.GetRowCellValue(i, "DaireCikisTarihi");
+                lblAdSoyad.Text = gridView1.GetRowCellValue(i, "AdiSoyadi").ToString();
+                
+                lblBlok.Text = string.Format("{0} Blok, Daire {1}", repositoryItemLookUpEdit1.GetDisplayText(gridView1.GetFocusedRowCellValue("BlokAdiID")).Trim(),
+                    repositoryItemLookUpEdit2.GetDisplayText(gridView1.GetFocusedRowCellValue("DaireAdiID")).Trim());
+
+                string Kiraci, Oturuyor = "";
                 bool kiraciEvSahibi = Convert.ToBoolean(gridView1.GetRowCellValue(i, "KiraciEvsahibi"));
                 if (kiraciEvSahibi)
-                {
-                    rbKiraci.Checked = true;
-                    rbEvSahibi.Checked = false;
-                }
+                    Kiraci = "Kiracı";
                 else
-                {
-                    rbKiraci.Checked = false;
-                    rbEvSahibi.Checked = true;
-                }
+                    Kiraci = "Ev Sahibi";
+
                 bool oturuyorAyrildi = Convert.ToBoolean(gridView1.GetRowCellValue(i, "OturuyorAyrildi"));
                 if (oturuyorAyrildi)
-                {
-                    rbOturuyor.Checked = true;
-                    rbAyrildi.Checked = false;
-                }
+                    Oturuyor = "Oturuyor";
                 else
-                {
-                    rbOturuyor.Checked = false;
-                    rbAyrildi.Checked = true;
-                }
+                    Oturuyor = "Ayrıldı";
+
+                lblKiraci.Text = string.Format("{0}, {1}", Kiraci, Oturuyor);
+
                 SiteDBEntities2 db = new SiteDBEntities2();
                 var odeme = db.S_Odemeler(Convert.ToInt32(id)).ToList();
                 gridControl2.DataSource = odeme;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(YeniKisiEkle));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -36,6 +37,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnKaydet = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKaydetKapat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKaydetYeni = new DevExpress.XtraBars.BarButtonItem();
+            this.btnGerial = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSil = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKapat = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -48,9 +54,11 @@
             this.rbEvSahibi = new System.Windows.Forms.RadioButton();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            this.txtNotlar = new DevExpress.XtraEditors.MemoEdit();
             this.cmbDaireNo = new DevExpress.XtraEditors.LookUpEdit();
+            this.sDairelerResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbBlokAdi = new DevExpress.XtraEditors.LookUpEdit();
+            this.sBloklarResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtAdSoyad = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -58,19 +66,19 @@
             this.dtCikisTarihi = new DevExpress.XtraEditors.DateEdit();
             this.dtGirisTarihi = new DevExpress.XtraEditors.DateEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.btnKaydetKapat = new DevExpress.XtraBars.BarButtonItem();
-            this.btnKaydetYeni = new DevExpress.XtraBars.BarButtonItem();
-            this.btnGerial = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSil = new DevExpress.XtraBars.BarButtonItem();
-            this.btnKapat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnOdemeEkle = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnBorclandir = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNotlar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDaireNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sDairelerResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBlokAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sBloklarResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdSoyad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCikisTarihi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCikisTarihi.Properties)).BeginInit();
@@ -88,9 +96,11 @@
             this.btnKaydetYeni,
             this.btnGerial,
             this.btnSil,
-            this.btnKapat});
+            this.btnKapat,
+            this.btnOdemeEkle,
+            this.btnBorclandir});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 9;
+            this.ribbonControl1.MaxItemId = 11;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -100,7 +110,7 @@
             this.ribbonControl1.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(401, 143);
+            this.ribbonControl1.Size = new System.Drawing.Size(469, 143);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
@@ -112,10 +122,48 @@
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
+            // btnKaydetKapat
+            // 
+            this.btnKaydetKapat.Caption = "Kaydet ve Kapat";
+            this.btnKaydetKapat.Id = 2;
+            this.btnKaydetKapat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydetKapat.ImageOptions.Image")));
+            this.btnKaydetKapat.Name = "btnKaydetKapat";
+            this.btnKaydetKapat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // btnKaydetYeni
+            // 
+            this.btnKaydetYeni.Caption = "Kaydet ve Yeni";
+            this.btnKaydetYeni.Id = 3;
+            this.btnKaydetYeni.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydetYeni.ImageOptions.Image")));
+            this.btnKaydetYeni.Name = "btnKaydetYeni";
+            // 
+            // btnGerial
+            // 
+            this.btnGerial.Caption = "Değişiklikleri Geri Al";
+            this.btnGerial.Id = 6;
+            this.btnGerial.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGerial.ImageOptions.Image")));
+            this.btnGerial.Name = "btnGerial";
+            // 
+            // btnSil
+            // 
+            this.btnSil.Caption = "Kişiyi Sil";
+            this.btnSil.Id = 7;
+            this.btnSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSil.ImageOptions.Image")));
+            this.btnSil.Name = "btnSil";
+            // 
+            // btnKapat
+            // 
+            this.btnKapat.Caption = "Kapat";
+            this.btnKapat.Id = 8;
+            this.btnKapat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKapat.ImageOptions.Image")));
+            this.btnKapat.Name = "btnKapat";
+            this.btnKapat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Kişi Bilgileri";
             // 
@@ -126,17 +174,15 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnKaydetYeni);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnGerial);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnSil);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnKapat);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Menü";
             // 
             // ribbonStatusBar1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 410);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 418);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(401, 31);
-            this.ribbonStatusBar1.Visible = false;
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(469, 31);
             // 
             // ribbonPage2
             // 
@@ -223,12 +269,12 @@
             this.labelControl1.TabIndex = 24;
             this.labelControl1.Text = "Ad Soyad";
             // 
-            // textEdit1
+            // txtNotlar
             // 
-            this.textEdit1.Location = new System.Drawing.Point(85, 348);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(264, 60);
-            this.textEdit1.TabIndex = 33;
+            this.txtNotlar.Location = new System.Drawing.Point(85, 348);
+            this.txtNotlar.Name = "txtNotlar";
+            this.txtNotlar.Size = new System.Drawing.Size(264, 60);
+            this.txtNotlar.TabIndex = 33;
             // 
             // cmbDaireNo
             // 
@@ -239,6 +285,7 @@
             this.cmbDaireNo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DaireNo", "Daire No", 51, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.cmbDaireNo.Properties.DataSource = this.sDairelerResultBindingSource;
             this.cmbDaireNo.Properties.DisplayMember = "DaireNo";
             this.cmbDaireNo.Properties.NullText = "";
             this.cmbDaireNo.Properties.PopupSizeable = false;
@@ -246,6 +293,10 @@
             this.cmbDaireNo.Properties.ValueMember = "ID";
             this.cmbDaireNo.Size = new System.Drawing.Size(264, 20);
             this.cmbDaireNo.TabIndex = 27;
+            // 
+            // sDairelerResultBindingSource
+            // 
+            this.sDairelerResultBindingSource.DataSource = typeof(OzayTepeSiteYonetimi.S_Daireler_Result);
             // 
             // cmbBlokAdi
             // 
@@ -256,6 +307,7 @@
             this.cmbBlokAdi.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BlokAdi", "Blok Adi", 47, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.cmbBlokAdi.Properties.DataSource = this.sBloklarResultBindingSource;
             this.cmbBlokAdi.Properties.DisplayMember = "BlokAdi";
             this.cmbBlokAdi.Properties.NullText = "";
             this.cmbBlokAdi.Properties.PopupSizeable = false;
@@ -263,6 +315,10 @@
             this.cmbBlokAdi.Properties.ValueMember = "ID";
             this.cmbBlokAdi.Size = new System.Drawing.Size(264, 20);
             this.cmbBlokAdi.TabIndex = 25;
+            // 
+            // sBloklarResultBindingSource
+            // 
+            this.sBloklarResultBindingSource.DataSource = typeof(OzayTepeSiteYonetimi.S_Bloklar_Result);
             // 
             // txtAdSoyad
             // 
@@ -328,54 +384,37 @@
             this.labelControl4.TabIndex = 30;
             this.labelControl4.Text = "Giriş Tarihi";
             // 
-            // btnKaydetKapat
+            // btnOdemeEkle
             // 
-            this.btnKaydetKapat.Caption = "Kaydet ve Kapat";
-            this.btnKaydetKapat.Id = 2;
-            this.btnKaydetKapat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydetKapat.ImageOptions.Image")));
-            this.btnKaydetKapat.Name = "btnKaydetKapat";
-            this.btnKaydetKapat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnOdemeEkle.Caption = "Yeni Ödeme Ekle";
+            this.btnOdemeEkle.Id = 9;
+            this.btnOdemeEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOdemeEkle.ImageOptions.Image")));
+            this.btnOdemeEkle.Name = "btnOdemeEkle";
+            this.btnOdemeEkle.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // btnKaydetYeni
+            // ribbonPageGroup2
             // 
-            this.btnKaydetYeni.Caption = "Kaydet ve Yeni";
-            this.btnKaydetYeni.Id = 3;
-            this.btnKaydetYeni.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydetYeni.ImageOptions.Image")));
-            this.btnKaydetYeni.Name = "btnKaydetYeni";
-            this.btnKaydetYeni.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnOdemeEkle);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnBorclandir);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Cari İşlemler";
             // 
-            // btnGerial
+            // btnBorclandir
             // 
-            this.btnGerial.Caption = "Değişiklikleri Geri Al";
-            this.btnGerial.Id = 6;
-            this.btnGerial.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGerial.ImageOptions.Image")));
-            this.btnGerial.Name = "btnGerial";
-            this.btnGerial.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // btnSil
-            // 
-            this.btnSil.Caption = "Sil";
-            this.btnSil.Id = 7;
-            this.btnSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSil.ImageOptions.Image")));
-            this.btnSil.Name = "btnSil";
-            this.btnSil.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // btnKapat
-            // 
-            this.btnKapat.Caption = "Kapat";
-            this.btnKapat.Id = 8;
-            this.btnKapat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKapat.ImageOptions.Image")));
-            this.btnKapat.Name = "btnKapat";
-            this.btnKapat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnBorclandir.Caption = "Borçlandır";
+            this.btnBorclandir.Id = 10;
+            this.btnBorclandir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBorclandir.ImageOptions.Image")));
+            this.btnBorclandir.Name = "btnBorclandir";
+            this.btnBorclandir.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // YeniKisiEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 441);
+            this.ClientSize = new System.Drawing.Size(469, 449);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.labelControl6);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.txtNotlar);
             this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.labelControl4);
@@ -405,9 +444,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNotlar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDaireNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sDairelerResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBlokAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sBloklarResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdSoyad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCikisTarihi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCikisTarihi.Properties)).EndInit();
@@ -433,7 +474,7 @@
         private System.Windows.Forms.RadioButton rbEvSahibi;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.MemoEdit textEdit1;
+        private DevExpress.XtraEditors.MemoEdit txtNotlar;
         private DevExpress.XtraEditors.LookUpEdit cmbDaireNo;
         private DevExpress.XtraEditors.LookUpEdit cmbBlokAdi;
         private DevExpress.XtraEditors.TextEdit txtAdSoyad;
@@ -449,5 +490,10 @@
         private DevExpress.XtraBars.BarButtonItem btnGerial;
         private DevExpress.XtraBars.BarButtonItem btnSil;
         private DevExpress.XtraBars.BarButtonItem btnKapat;
+        private System.Windows.Forms.BindingSource sDairelerResultBindingSource;
+        private System.Windows.Forms.BindingSource sBloklarResultBindingSource;
+        private DevExpress.XtraBars.BarButtonItem btnOdemeEkle;
+        private DevExpress.XtraBars.BarButtonItem btnBorclandir;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
     }
 }
