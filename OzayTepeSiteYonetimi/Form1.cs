@@ -47,7 +47,7 @@ namespace OzayTepeSiteYonetimi
 
         private void navBarYeniKisiEkle_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            YeniKisiEkle frm = new YeniKisiEkle(kisiid);
+            YeniKisiEkle frm = new YeniKisiEkle(-1);
             frm.ShowDialog();
         }
 
@@ -87,7 +87,29 @@ namespace OzayTepeSiteYonetimi
 
         private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            try
+            {
+
+            }
+            catch (Exception hata)
+            {
+
+                throw;
+            }
             //Mesaj.MesajVer("Kayıt eklenmiştir.", Mesaj.MesajTipi.Onay, this);
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID"));
+            int rowhandle = gridView1.FocusedRowHandle;
+            YeniKisiEkle frm = new YeniKisiEkle(id);
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                //BaglantiDataGetir(-1);
+            }
+            gridView1.FocusedRowHandle = rowhandle;
         }
     }
 }

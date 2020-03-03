@@ -60,5 +60,54 @@ namespace OzayTepeSiteYonetimi
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<S_OdemeTipi_Result>("S_OdemeTipi");
         }
+    
+        public virtual int UDI_Kisi(Nullable<int> islemTipi, Nullable<int> iD, string adiSoyadi, Nullable<int> blokAdiID, Nullable<int> daireAdiID, Nullable<bool> kiraciEvsahibi, Nullable<System.DateTime> kayitTarihi, Nullable<System.DateTime> daireGirisTarihi, Nullable<System.DateTime> daireCikisTarihi, Nullable<bool> oturuyorAyrildi, string notlar)
+        {
+            var islemTipiParameter = islemTipi.HasValue ?
+                new ObjectParameter("IslemTipi", islemTipi) :
+                new ObjectParameter("IslemTipi", typeof(int));
+    
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var adiSoyadiParameter = adiSoyadi != null ?
+                new ObjectParameter("AdiSoyadi", adiSoyadi) :
+                new ObjectParameter("AdiSoyadi", typeof(string));
+    
+            var blokAdiIDParameter = blokAdiID.HasValue ?
+                new ObjectParameter("BlokAdiID", blokAdiID) :
+                new ObjectParameter("BlokAdiID", typeof(int));
+    
+            var daireAdiIDParameter = daireAdiID.HasValue ?
+                new ObjectParameter("DaireAdiID", daireAdiID) :
+                new ObjectParameter("DaireAdiID", typeof(int));
+    
+            var kiraciEvsahibiParameter = kiraciEvsahibi.HasValue ?
+                new ObjectParameter("KiraciEvsahibi", kiraciEvsahibi) :
+                new ObjectParameter("KiraciEvsahibi", typeof(bool));
+    
+            var kayitTarihiParameter = kayitTarihi.HasValue ?
+                new ObjectParameter("KayitTarihi", kayitTarihi) :
+                new ObjectParameter("KayitTarihi", typeof(System.DateTime));
+    
+            var daireGirisTarihiParameter = daireGirisTarihi.HasValue ?
+                new ObjectParameter("DaireGirisTarihi", daireGirisTarihi) :
+                new ObjectParameter("DaireGirisTarihi", typeof(System.DateTime));
+    
+            var daireCikisTarihiParameter = daireCikisTarihi.HasValue ?
+                new ObjectParameter("DaireCikisTarihi", daireCikisTarihi) :
+                new ObjectParameter("DaireCikisTarihi", typeof(System.DateTime));
+    
+            var oturuyorAyrildiParameter = oturuyorAyrildi.HasValue ?
+                new ObjectParameter("OturuyorAyrildi", oturuyorAyrildi) :
+                new ObjectParameter("OturuyorAyrildi", typeof(bool));
+    
+            var notlarParameter = notlar != null ?
+                new ObjectParameter("Notlar", notlar) :
+                new ObjectParameter("Notlar", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDI_Kisi", islemTipiParameter, iDParameter, adiSoyadiParameter, blokAdiIDParameter, daireAdiIDParameter, kiraciEvsahibiParameter, kayitTarihiParameter, daireGirisTarihiParameter, daireCikisTarihiParameter, oturuyorAyrildiParameter, notlarParameter);
+        }
     }
 }

@@ -5,6 +5,16 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzayTepeSiteYonetimi", "OzayTepeSiteYonetimi\OzayTepeSiteYonetimi.csproj", "{EFA119E1-4BF5-4A2F-8B51-C282BA02C29B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{6C8406FD-D372-4DB1-9385-FC0BA64A849D}"
+	ProjectSection(SolutionItems) = preProject
+		S_Bloklar.sql = S_Bloklar.sql
+		S_Daireler.sql = S_Daireler.sql
+		S_Kisiler.sql = S_Kisiler.sql
+		S_Odemeler.sql = S_Odemeler.sql
+		S_OdemeTipi.sql = S_OdemeTipi.sql
+		UDI_Kisi.sql = UDI_Kisi.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -42,8 +42,11 @@
             this.btnGerial = new DevExpress.XtraBars.BarButtonItem();
             this.btnSil = new DevExpress.XtraBars.BarButtonItem();
             this.btnKapat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnOdemeEkle = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBorclandir = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
@@ -66,9 +69,6 @@
             this.dtCikisTarihi = new DevExpress.XtraEditors.DateEdit();
             this.dtGirisTarihi = new DevExpress.XtraEditors.DateEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.btnOdemeEkle = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnBorclandir = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
@@ -121,6 +121,7 @@
             this.btnKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.ImageOptions.Image")));
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnKaydet.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKaydet_ItemClick);
             // 
             // btnKaydetKapat
             // 
@@ -159,6 +160,22 @@
             this.btnKapat.Name = "btnKapat";
             this.btnKapat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
+            // btnOdemeEkle
+            // 
+            this.btnOdemeEkle.Caption = "Yeni Ödeme Ekle";
+            this.btnOdemeEkle.Id = 9;
+            this.btnOdemeEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOdemeEkle.ImageOptions.Image")));
+            this.btnOdemeEkle.Name = "btnOdemeEkle";
+            this.btnOdemeEkle.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // btnBorclandir
+            // 
+            this.btnBorclandir.Caption = "Borçlandır";
+            this.btnBorclandir.Id = 10;
+            this.btnBorclandir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBorclandir.ImageOptions.Image")));
+            this.btnBorclandir.Name = "btnBorclandir";
+            this.btnBorclandir.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -176,6 +193,13 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnSil);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Menü";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnOdemeEkle);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnBorclandir);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Cari İşlemler";
             // 
             // ribbonStatusBar1
             // 
@@ -383,29 +407,6 @@
             this.labelControl4.Size = new System.Drawing.Size(49, 13);
             this.labelControl4.TabIndex = 30;
             this.labelControl4.Text = "Giriş Tarihi";
-            // 
-            // btnOdemeEkle
-            // 
-            this.btnOdemeEkle.Caption = "Yeni Ödeme Ekle";
-            this.btnOdemeEkle.Id = 9;
-            this.btnOdemeEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOdemeEkle.ImageOptions.Image")));
-            this.btnOdemeEkle.Name = "btnOdemeEkle";
-            this.btnOdemeEkle.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnOdemeEkle);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnBorclandir);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Cari İşlemler";
-            // 
-            // btnBorclandir
-            // 
-            this.btnBorclandir.Caption = "Borçlandır";
-            this.btnBorclandir.Id = 10;
-            this.btnBorclandir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBorclandir.ImageOptions.Image")));
-            this.btnBorclandir.Name = "btnBorclandir";
-            this.btnBorclandir.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // YeniKisiEkle
             // 

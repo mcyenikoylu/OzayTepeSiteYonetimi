@@ -23,5 +23,6 @@ namespace OzayTepeSiteYonetimi
         public Nullable<System.DateTime> DaireCikisTarihi { get; set; }
         public Nullable<bool> OturuyorAyrildi { get; set; }
         public string Notlar { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     }
 }

@@ -14,6 +14,19 @@
           <Parameter Name="KisiID" Type="int" Mode="In" />
         </Function>
         <Function Name="S_OdemeTipi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UDI_Kisi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IslemTipi" Type="int" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="AdiSoyadi" Type="nvarchar" Mode="In" />
+          <Parameter Name="BlokAdiID" Type="int" Mode="In" />
+          <Parameter Name="DaireAdiID" Type="int" Mode="In" />
+          <Parameter Name="KiraciEvsahibi" Type="bit" Mode="In" />
+          <Parameter Name="KayitTarihi" Type="date" Mode="In" />
+          <Parameter Name="DaireGirisTarihi" Type="date" Mode="In" />
+          <Parameter Name="DaireCikisTarihi" Type="date" Mode="In" />
+          <Parameter Name="OturuyorAyrildi" Type="bit" Mode="In" />
+          <Parameter Name="Notlar" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="SiteDBModelStoreContainer" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -29,6 +42,19 @@
           <Parameter Name="KisiID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="S_OdemeTipi" ReturnType="Collection(SiteDBModel.S_OdemeTipi_Result)" />
+          <FunctionImport Name="UDI_Kisi">
+            <Parameter Name="IslemTipi" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="AdiSoyadi" Mode="In" Type="String" />
+            <Parameter Name="BlokAdiID" Mode="In" Type="Int32" />
+            <Parameter Name="DaireAdiID" Mode="In" Type="Int32" />
+            <Parameter Name="KiraciEvsahibi" Mode="In" Type="Boolean" />
+            <Parameter Name="KayitTarihi" Mode="In" Type="DateTime" />
+            <Parameter Name="DaireGirisTarihi" Mode="In" Type="DateTime" />
+            <Parameter Name="DaireCikisTarihi" Mode="In" Type="DateTime" />
+            <Parameter Name="OturuyorAyrildi" Mode="In" Type="Boolean" />
+            <Parameter Name="Notlar" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="S_Kisiler_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -41,6 +67,7 @@
           <Property Type="DateTime" Name="DaireCikisTarihi" Nullable="true" />
           <Property Type="Boolean" Name="OturuyorAyrildi" Nullable="true" />
           <Property Type="String" Name="Notlar" Nullable="true" MaxLength="500" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
           </ComplexType>
         <ComplexType Name="S_Bloklar_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -86,6 +113,7 @@
                 <ScalarProperty Name="DaireCikisTarihi" ColumnName="DaireCikisTarihi" />
                 <ScalarProperty Name="OturuyorAyrildi" ColumnName="OturuyorAyrildi" />
                 <ScalarProperty Name="Notlar" ColumnName="Notlar" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -130,6 +158,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDI_Kisi" FunctionName="SiteDBModel.Store.UDI_Kisi" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
