@@ -34,7 +34,7 @@ namespace OzayTepeSiteYonetimi
             ribbonControl.MergeRibbon(uc_gridAyarlari.ribbonControl1);
 
             SiteDBEntities2 db = new SiteDBEntities2();
-            var list = db.S_Kisiler(-1).ToList();
+            var list = db.S_Kisiler(-1).Where(c => c.IsDeleted == false).ToList();
             gridControl1.DataSource = list;
 
             var bloklar = db.S_Bloklar().ToList();
@@ -47,8 +47,14 @@ namespace OzayTepeSiteYonetimi
 
         private void navBarYeniKisiEkle_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            int rowhandle = gridView1.FocusedRowHandle;
             YeniKisiEkle frm = new YeniKisiEkle(-1);
             frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                DataGetir(-1);//hepsini getir
+            }
+            gridView1.FocusedRowHandle = rowhandle;
         }
 
         int kisiid = -1;
@@ -107,9 +113,16 @@ namespace OzayTepeSiteYonetimi
             frm.ShowDialog();
             if (frm.DialogResult == DialogResult.OK)
             {
-                //BaglantiDataGetir(-1);
+                DataGetir(-1); //hepsini getir
             }
             gridView1.FocusedRowHandle = rowhandle;
+        }
+
+        void DataGetir(int ID)
+        {
+            SiteDBEntities2 db = new SiteDBEntities2();
+            var list = db.S_Kisiler(ID).Where(c => c.IsDeleted == false).ToList();
+            gridControl1.DataSource = list;
         }
     }
 }

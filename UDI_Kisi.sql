@@ -18,7 +18,7 @@ GO
 -- Create date: 3.3.2020
 -- Description:	kişi ekle
 -- =============================================
-CREATE PROCEDURE UDI_Kisi 
+alter PROCEDURE UDI_Kisi 
 	@IslemTipi int -- 1:insert/update 2:delete
 	,@ID int -- kişi id
 	,@AdiSoyadi nvarchar(50)
@@ -46,7 +46,7 @@ BEGIN
 			KiraciEvsahibi = @KiraciEvsahibi,
 			KayitTarihi = @KayitTarihi,
 			DaireGirisTarihi = @DaireGirisTarihi,
-			DaireCikisTarihi = @DaireCikisTarihi,
+			DaireCikisTarihi = cast(NULLIF(@DaireCikisTarihi,'') AS DATE),
 			OturuyorAyrildi = @OturuyorAyrildi,
 			Notlar = @Notlar
 			where ID = @ID
@@ -57,7 +57,7 @@ BEGIN
 			KiraciEvsahibi,KayitTarihi,DaireGirisTarihi,DaireCikisTarihi,
 			OturuyorAyrildi,Notlar) 
 			values (@AdiSoyadi,@BlokAdiID,@DaireAdiID,@KiraciEvsahibi,
-			@KayitTarihi,@DaireGirisTarihi,@DaireCikisTarihi,
+			@KayitTarihi,@DaireGirisTarihi,cast(NULLIF(@DaireCikisTarihi,'') AS DATE),
 			@OturuyorAyrildi,@Notlar)
 		end
 	end

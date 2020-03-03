@@ -109,8 +109,9 @@
             this.ribbonControl1.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(469, 143);
+            this.ribbonControl1.Size = new System.Drawing.Size(390, 122);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
@@ -130,6 +131,7 @@
             this.btnKaydetKapat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydetKapat.ImageOptions.Image")));
             this.btnKaydetKapat.Name = "btnKaydetKapat";
             this.btnKaydetKapat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnKaydetKapat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKaydetKapat_ItemClick);
             // 
             // btnKaydetYeni
             // 
@@ -137,6 +139,7 @@
             this.btnKaydetYeni.Id = 3;
             this.btnKaydetYeni.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydetYeni.ImageOptions.Image")));
             this.btnKaydetYeni.Name = "btnKaydetYeni";
+            this.btnKaydetYeni.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKaydetYeni_ItemClick);
             // 
             // btnGerial
             // 
@@ -144,6 +147,7 @@
             this.btnGerial.Id = 6;
             this.btnGerial.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGerial.ImageOptions.Image")));
             this.btnGerial.Name = "btnGerial";
+            this.btnGerial.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGerial_ItemClick);
             // 
             // btnSil
             // 
@@ -151,6 +155,7 @@
             this.btnSil.Id = 7;
             this.btnSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSil.ImageOptions.Image")));
             this.btnSil.Name = "btnSil";
+            this.btnSil.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSil_ItemClick);
             // 
             // btnKapat
             // 
@@ -167,6 +172,7 @@
             this.btnOdemeEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOdemeEkle.ImageOptions.Image")));
             this.btnOdemeEkle.Name = "btnOdemeEkle";
             this.btnOdemeEkle.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnOdemeEkle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOdemeEkle_ItemClick);
             // 
             // btnBorclandir
             // 
@@ -175,6 +181,7 @@
             this.btnBorclandir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBorclandir.ImageOptions.Image")));
             this.btnBorclandir.Name = "btnBorclandir";
             this.btnBorclandir.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnBorclandir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBorclandir_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -203,10 +210,10 @@
             // 
             // ribbonStatusBar1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 418);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 395);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(469, 31);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(390, 31);
             // 
             // ribbonPage2
             // 
@@ -218,7 +225,7 @@
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl4.Controls.Add(this.rbOturuyor);
             this.panelControl4.Controls.Add(this.rbAyrildi);
-            this.panelControl4.Location = new System.Drawing.Point(85, 316);
+            this.panelControl4.Location = new System.Drawing.Point(86, 292);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(167, 26);
             this.panelControl4.TabIndex = 36;
@@ -250,7 +257,7 @@
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl3.Controls.Add(this.rbKiraci);
             this.panelControl3.Controls.Add(this.rbEvSahibi);
-            this.panelControl3.Location = new System.Drawing.Point(85, 288);
+            this.panelControl3.Location = new System.Drawing.Point(86, 264);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(167, 26);
             this.panelControl3.TabIndex = 35;
@@ -279,7 +286,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(50, 350);
+            this.labelControl6.Location = new System.Drawing.Point(51, 326);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(29, 13);
             this.labelControl6.TabIndex = 34;
@@ -287,7 +294,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(33, 161);
+            this.labelControl1.Location = new System.Drawing.Point(34, 137);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(46, 13);
             this.labelControl1.TabIndex = 24;
@@ -295,14 +302,15 @@
             // 
             // txtNotlar
             // 
-            this.txtNotlar.Location = new System.Drawing.Point(85, 348);
+            this.txtNotlar.Location = new System.Drawing.Point(86, 324);
             this.txtNotlar.Name = "txtNotlar";
+            this.txtNotlar.Properties.MaxLength = 500;
             this.txtNotlar.Size = new System.Drawing.Size(264, 60);
             this.txtNotlar.TabIndex = 33;
             // 
             // cmbDaireNo
             // 
-            this.cmbDaireNo.Location = new System.Drawing.Point(85, 210);
+            this.cmbDaireNo.Location = new System.Drawing.Point(86, 186);
             this.cmbDaireNo.Name = "cmbDaireNo";
             this.cmbDaireNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -313,7 +321,6 @@
             this.cmbDaireNo.Properties.DisplayMember = "DaireNo";
             this.cmbDaireNo.Properties.NullText = "";
             this.cmbDaireNo.Properties.PopupSizeable = false;
-            this.cmbDaireNo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.cmbDaireNo.Properties.ValueMember = "ID";
             this.cmbDaireNo.Size = new System.Drawing.Size(264, 20);
             this.cmbDaireNo.TabIndex = 27;
@@ -324,7 +331,7 @@
             // 
             // cmbBlokAdi
             // 
-            this.cmbBlokAdi.Location = new System.Drawing.Point(85, 184);
+            this.cmbBlokAdi.Location = new System.Drawing.Point(86, 160);
             this.cmbBlokAdi.Name = "cmbBlokAdi";
             this.cmbBlokAdi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -335,7 +342,6 @@
             this.cmbBlokAdi.Properties.DisplayMember = "BlokAdi";
             this.cmbBlokAdi.Properties.NullText = "";
             this.cmbBlokAdi.Properties.PopupSizeable = false;
-            this.cmbBlokAdi.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.cmbBlokAdi.Properties.ValueMember = "ID";
             this.cmbBlokAdi.Size = new System.Drawing.Size(264, 20);
             this.cmbBlokAdi.TabIndex = 25;
@@ -346,14 +352,15 @@
             // 
             // txtAdSoyad
             // 
-            this.txtAdSoyad.Location = new System.Drawing.Point(85, 158);
+            this.txtAdSoyad.Location = new System.Drawing.Point(86, 134);
             this.txtAdSoyad.Name = "txtAdSoyad";
+            this.txtAdSoyad.Properties.MaxLength = 50;
             this.txtAdSoyad.Size = new System.Drawing.Size(264, 20);
             this.txtAdSoyad.TabIndex = 23;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(42, 187);
+            this.labelControl2.Location = new System.Drawing.Point(43, 163);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(37, 13);
             this.labelControl2.TabIndex = 26;
@@ -361,7 +368,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(29, 265);
+            this.labelControl5.Location = new System.Drawing.Point(30, 241);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(50, 13);
             this.labelControl5.TabIndex = 32;
@@ -369,7 +376,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(38, 213);
+            this.labelControl3.Location = new System.Drawing.Point(39, 189);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(41, 13);
             this.labelControl3.TabIndex = 28;
@@ -378,11 +385,11 @@
             // dtCikisTarihi
             // 
             this.dtCikisTarihi.EditValue = null;
-            this.dtCikisTarihi.Location = new System.Drawing.Point(85, 262);
+            this.dtCikisTarihi.Location = new System.Drawing.Point(86, 238);
             this.dtCikisTarihi.Name = "dtCikisTarihi";
             this.dtCikisTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Clear, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Tarihi Sil", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Clear, "Tarih seçimini kaldırın.", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.dtCikisTarihi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtCikisTarihi.Size = new System.Drawing.Size(264, 20);
@@ -391,7 +398,7 @@
             // dtGirisTarihi
             // 
             this.dtGirisTarihi.EditValue = null;
-            this.dtGirisTarihi.Location = new System.Drawing.Point(85, 236);
+            this.dtGirisTarihi.Location = new System.Drawing.Point(86, 212);
             this.dtGirisTarihi.Name = "dtGirisTarihi";
             this.dtGirisTarihi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -402,7 +409,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(30, 239);
+            this.labelControl4.Location = new System.Drawing.Point(31, 215);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(49, 13);
             this.labelControl4.TabIndex = 30;
@@ -412,7 +419,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 449);
+            this.ClientSize = new System.Drawing.Size(390, 426);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.txtNotlar);
@@ -429,6 +436,7 @@
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.ribbonControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "YeniKisiEkle";
@@ -437,6 +445,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "Kişi";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.YeniKisiEkle_FormClosing);
             this.Load += new System.EventHandler(this.YeniKisiEkle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();

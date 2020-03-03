@@ -24,5 +24,6 @@ namespace OzayTepeSiteYonetimi
         public Nullable<int> OdemeTipiID { get; set; }
         public Nullable<System.DateTime> VadeTarihi { get; set; }
         public Nullable<System.DateTime> GuncellemeTarihi { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     }
 }

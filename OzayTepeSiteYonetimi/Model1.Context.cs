@@ -109,5 +109,38 @@ namespace OzayTepeSiteYonetimi
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDI_Kisi", islemTipiParameter, iDParameter, adiSoyadiParameter, blokAdiIDParameter, daireAdiIDParameter, kiraciEvsahibiParameter, kayitTarihiParameter, daireGirisTarihiParameter, daireCikisTarihiParameter, oturuyorAyrildiParameter, notlarParameter);
         }
+    
+        public virtual int UDI_OdemeEkle(Nullable<int> isDeleted, Nullable<int> kisiID, Nullable<int> kayitID, Nullable<System.DateTime> tarih, Nullable<int> odemeTipiID, Nullable<decimal> tutar, string aciklama)
+        {
+            var isDeletedParameter = isDeleted.HasValue ?
+                new ObjectParameter("IsDeleted", isDeleted) :
+                new ObjectParameter("IsDeleted", typeof(int));
+    
+            var kisiIDParameter = kisiID.HasValue ?
+                new ObjectParameter("KisiID", kisiID) :
+                new ObjectParameter("KisiID", typeof(int));
+    
+            var kayitIDParameter = kayitID.HasValue ?
+                new ObjectParameter("KayitID", kayitID) :
+                new ObjectParameter("KayitID", typeof(int));
+    
+            var tarihParameter = tarih.HasValue ?
+                new ObjectParameter("Tarih", tarih) :
+                new ObjectParameter("Tarih", typeof(System.DateTime));
+    
+            var odemeTipiIDParameter = odemeTipiID.HasValue ?
+                new ObjectParameter("OdemeTipiID", odemeTipiID) :
+                new ObjectParameter("OdemeTipiID", typeof(int));
+    
+            var tutarParameter = tutar.HasValue ?
+                new ObjectParameter("Tutar", tutar) :
+                new ObjectParameter("Tutar", typeof(decimal));
+    
+            var aciklamaParameter = aciklama != null ?
+                new ObjectParameter("Aciklama", aciklama) :
+                new ObjectParameter("Aciklama", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDI_OdemeEkle", isDeletedParameter, kisiIDParameter, kayitIDParameter, tarihParameter, odemeTipiIDParameter, tutarParameter, aciklamaParameter);
+        }
     }
 }

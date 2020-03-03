@@ -27,6 +27,15 @@
           <Parameter Name="OturuyorAyrildi" Type="bit" Mode="In" />
           <Parameter Name="Notlar" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="UDI_OdemeEkle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IsDeleted" Type="int" Mode="In" />
+          <Parameter Name="KisiID" Type="int" Mode="In" />
+          <Parameter Name="KayitID" Type="int" Mode="In" />
+          <Parameter Name="Tarih" Type="date" Mode="In" />
+          <Parameter Name="OdemeTipiID" Type="int" Mode="In" />
+          <Parameter Name="Tutar" Type="decimal" Mode="In" />
+          <Parameter Name="Aciklama" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="SiteDBModelStoreContainer" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -54,6 +63,15 @@
             <Parameter Name="DaireCikisTarihi" Mode="In" Type="DateTime" />
             <Parameter Name="OturuyorAyrildi" Mode="In" Type="Boolean" />
             <Parameter Name="Notlar" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDI_OdemeEkle">
+            <Parameter Name="IsDeleted" Mode="In" Type="Int32" />
+            <Parameter Name="KisiID" Mode="In" Type="Int32" />
+            <Parameter Name="KayitID" Mode="In" Type="Int32" />
+            <Parameter Name="Tarih" Mode="In" Type="DateTime" />
+            <Parameter Name="OdemeTipiID" Mode="In" Type="Int32" />
+            <Parameter Name="Tutar" Mode="In" Type="Decimal" />
+            <Parameter Name="Aciklama" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="S_Kisiler_Result">
@@ -93,6 +111,7 @@
           <Property Type="Int32" Name="OdemeTipiID" Nullable="true" />
           <Property Type="DateTime" Name="VadeTarihi" Nullable="true" />
           <Property Type="DateTime" Name="GuncellemeTarihi" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -147,6 +166,7 @@
                 <ScalarProperty Name="OdemeTipiID" ColumnName="OdemeTipiID" />
                 <ScalarProperty Name="VadeTarihi" ColumnName="VadeTarihi" />
                 <ScalarProperty Name="GuncellemeTarihi" ColumnName="GuncellemeTarihi" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -159,6 +179,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UDI_Kisi" FunctionName="SiteDBModel.Store.UDI_Kisi" />
+          <FunctionImportMapping FunctionImportName="UDI_OdemeEkle" FunctionName="SiteDBModel.Store.UDI_OdemeEkle" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
