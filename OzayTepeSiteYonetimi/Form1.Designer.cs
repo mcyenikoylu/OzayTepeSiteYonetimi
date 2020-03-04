@@ -48,7 +48,8 @@
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.kisilerNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarYeniKisiEkle = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarOdemeTipiEkle = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarOdemeEkle = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarBorclandir = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarKisilerListesi = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGridAyarKaydet = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarBlokTan = new DevExpress.XtraNavBar.NavBarItem();
@@ -268,10 +269,11 @@
             this.navBarYeniKisiEkle,
             this.navBarGridAyarKaydet,
             this.navBarKisilerListesi,
-            this.navBarOdemeTipiEkle,
+            this.navBarOdemeEkle,
             this.navBarBlokTan,
             this.navBarDaireTan,
-            this.navBarOdemeTipiTan});
+            this.navBarOdemeTipiTan,
+            this.navBarBorclandir});
             this.navBarControl.Location = new System.Drawing.Point(0, 143);
             this.navBarControl.Name = "navBarControl";
             this.navBarControl.OptionsNavPane.ExpandedWidth = 165;
@@ -287,7 +289,8 @@
             this.kisilerNavBarGroup.Expanded = true;
             this.kisilerNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarYeniKisiEkle),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarOdemeTipiEkle),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarOdemeEkle),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarBorclandir),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarKisilerListesi),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarGridAyarKaydet),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarBlokTan),
@@ -302,11 +305,20 @@
             this.navBarYeniKisiEkle.Name = "navBarYeniKisiEkle";
             this.navBarYeniKisiEkle.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarYeniKisiEkle_LinkClicked);
             // 
-            // navBarOdemeTipiEkle
+            // navBarOdemeEkle
             // 
-            this.navBarOdemeTipiEkle.Caption = "Yeni Ödeme Ekle";
-            this.navBarOdemeTipiEkle.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarOdemeTipiEkle.ImageOptions.SmallImage")));
-            this.navBarOdemeTipiEkle.Name = "navBarOdemeTipiEkle";
+            this.navBarOdemeEkle.Caption = "Yeni Ödeme Ekle";
+            this.navBarOdemeEkle.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarOdemeEkle.ImageOptions.SmallImage")));
+            this.navBarOdemeEkle.Name = "navBarOdemeEkle";
+            this.navBarOdemeEkle.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarOdemeEkle_LinkClicked);
+            // 
+            // navBarBorclandir
+            // 
+            this.navBarBorclandir.Caption = "Borçlandır";
+            this.navBarBorclandir.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarBorclandir.ImageOptions.LargeImage")));
+            this.navBarBorclandir.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarBorclandir.ImageOptions.SmallImage")));
+            this.navBarBorclandir.Name = "navBarBorclandir";
+            this.navBarBorclandir.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarBorclandir_LinkClicked);
             // 
             // navBarKisilerListesi
             // 
@@ -641,6 +653,7 @@
             this.colTutar.ColumnEdit = this.repositoryItemSpinEdit1;
             this.colTutar.FieldName = "Tutar";
             this.colTutar.Name = "colTutar";
+            this.colTutar.OptionsColumn.AllowEdit = false;
             this.colTutar.Visible = true;
             this.colTutar.VisibleIndex = 2;
             this.colTutar.Width = 60;
@@ -899,12 +912,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
-        private DevExpress.XtraNavBar.NavBarItem navBarOdemeTipiEkle;
+        private DevExpress.XtraNavBar.NavBarItem navBarOdemeEkle;
         private DevExpress.XtraNavBar.NavBarItem navBarDaireTan;
         private DevExpress.XtraNavBar.NavBarItem navBarBlokTan;
         private DevExpress.XtraNavBar.NavBarItem navBarOdemeTipiTan;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraEditors.LabelControl lblKiraci;
+        private DevExpress.XtraNavBar.NavBarItem navBarBorclandir;
     }
 }

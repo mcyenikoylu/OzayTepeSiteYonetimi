@@ -33,6 +33,7 @@
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnKaydet = new DevExpress.XtraBars.BarButtonItem();
             this.btnKaydetVeKapat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSil = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -46,7 +47,6 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.lblAdiSoyadi = new DevExpress.XtraEditors.LabelControl();
-            this.btnSil = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sOdemeTipiResultBindingSource)).BeginInit();
@@ -95,6 +95,15 @@
             this.btnKaydetVeKapat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnKaydetVeKapat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKaydetVeKapat_ItemClick);
             // 
+            // btnSil
+            // 
+            this.btnSil.Caption = "Sil";
+            this.btnSil.Id = 3;
+            this.btnSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSil.ImageOptions.Image")));
+            this.btnSil.Name = "btnSil";
+            this.btnSil.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnSil.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSil_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -124,6 +133,9 @@
             this.lookUpEdit1.Name = "lookUpEdit1";
             this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("OdemeAdi", "Odeme Adi", 62, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpEdit1.Properties.DataSource = this.sOdemeTipiResultBindingSource;
             this.lookUpEdit1.Properties.DisplayMember = "OdemeAdi";
             this.lookUpEdit1.Properties.NullText = "";
@@ -216,15 +228,6 @@
             this.lblAdiSoyadi.Size = new System.Drawing.Size(123, 33);
             this.lblAdiSoyadi.TabIndex = 12;
             this.lblAdiSoyadi.Text = "Adı Soyadı";
-            // 
-            // btnSil
-            // 
-            this.btnSil.Caption = "Sil";
-            this.btnSil.Id = 3;
-            this.btnSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnSil.Name = "btnSil";
-            this.btnSil.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnSil.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSil_ItemClick);
             // 
             // OdemeEkle
             // 

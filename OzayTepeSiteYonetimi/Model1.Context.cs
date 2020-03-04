@@ -142,5 +142,31 @@ namespace OzayTepeSiteYonetimi
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDI_OdemeEkle", isDeletedParameter, kisiIDParameter, kayitIDParameter, tarihParameter, odemeTipiIDParameter, tutarParameter, aciklamaParameter);
         }
+    
+        public virtual ObjectResult<S_OdemelerSablon_Result> S_OdemelerSablon()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<S_OdemelerSablon_Result>("S_OdemelerSablon");
+        }
+    
+        public virtual int UDI_Borclandir(Nullable<int> kisiID, Nullable<int> odemeTipiID, Nullable<decimal> tutar, Nullable<System.DateTime> vadeTarihi)
+        {
+            var kisiIDParameter = kisiID.HasValue ?
+                new ObjectParameter("KisiID", kisiID) :
+                new ObjectParameter("KisiID", typeof(int));
+    
+            var odemeTipiIDParameter = odemeTipiID.HasValue ?
+                new ObjectParameter("OdemeTipiID", odemeTipiID) :
+                new ObjectParameter("OdemeTipiID", typeof(int));
+    
+            var tutarParameter = tutar.HasValue ?
+                new ObjectParameter("Tutar", tutar) :
+                new ObjectParameter("Tutar", typeof(decimal));
+    
+            var vadeTarihiParameter = vadeTarihi.HasValue ?
+                new ObjectParameter("VadeTarihi", vadeTarihi) :
+                new ObjectParameter("VadeTarihi", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDI_Borclandir", kisiIDParameter, odemeTipiIDParameter, tutarParameter, vadeTarihiParameter);
+        }
     }
 }

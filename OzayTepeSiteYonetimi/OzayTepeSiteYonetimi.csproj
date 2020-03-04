@@ -75,6 +75,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlertForms.cs" />
+    <Compile Include="Borclandir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Borclandir.Designer.cs">
+      <DependentUpon>Borclandir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataControls.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +132,9 @@
     <Compile Include="S_Kisiler_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="S_OdemelerSablon_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="S_Odemeler_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -137,6 +147,9 @@
     <Compile Include="YeniKisiEkle.Designer.cs">
       <DependentUpon>YeniKisiEkle.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Borclandir.resx">
+      <DependentUpon>Borclandir.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

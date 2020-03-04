@@ -34,15 +34,14 @@ namespace OzayTepeSiteYonetimi
             ribbonControl.MergeRibbon(uc_gridAyarlari.ribbonControl1);
 
             SiteDBEntities2 db = new SiteDBEntities2();
-            var list = db.S_Kisiler(-1).Where(c => c.IsDeleted == false).ToList();
-            gridControl1.DataSource = list;
-
             var bloklar = db.S_Bloklar().ToList();
             repositoryItemLookUpEdit1.DataSource = bloklar;
             var daireler = db.S_Daireler().ToList();
             repositoryItemLookUpEdit2.DataSource = daireler;
             var odemeTipi = db.S_OdemeTipi().ToList();
             repositoryItemLookUpEdit3.DataSource = odemeTipi;
+            var list = db.S_Kisiler(-1).Where(c => c.IsDeleted == false).ToList();
+            gridControl1.DataSource = list;
         }
 
         private void navBarYeniKisiEkle_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -66,7 +65,7 @@ namespace OzayTepeSiteYonetimi
             {
                 lblAdSoyad.Text = gridView1.GetRowCellValue(i, "AdiSoyadi").ToString();
                 
-                lblBlok.Text = string.Format("{0} Blok, Daire {1}", repositoryItemLookUpEdit1.GetDisplayText(gridView1.GetFocusedRowCellValue("BlokAdiID")).Trim(),
+                lblBlok.Text = string.Format("{0} Blok, Daire {1}", repositoryItemLookUpEdit1.GetDisplayText(gridView1.GetRowCellValue(i,"BlokAdiID")).Trim(),
                     repositoryItemLookUpEdit2.GetDisplayText(gridView1.GetFocusedRowCellValue("DaireAdiID")).Trim());
 
                 string Kiraci, Oturuyor = "";
@@ -123,6 +122,25 @@ namespace OzayTepeSiteYonetimi
             SiteDBEntities2 db = new SiteDBEntities2();
             var list = db.S_Kisiler(ID).Where(c => c.IsDeleted == false).ToList();
             gridControl1.DataSource = list;
+        }
+
+        private void navBarBorclandir_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            int id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID"));
+            string ad = gridView1.GetFocusedRowCellValue("AdiSoyadi").ToString();
+            int rowhandle = gridView1.FocusedRowHandle;
+            Borclandir frm = new Borclandir(id,ad);
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                DataGetir(-1); //hepsini getir
+            }
+            gridView1.FocusedRowHandle = rowhandle;
+        }
+
+        private void navBarOdemeEkle_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+
         }
     }
 }
