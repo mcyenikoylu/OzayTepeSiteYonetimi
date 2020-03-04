@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{6C
 		S_Odemeler.sql = S_Odemeler.sql
 		S_OdemelerSablon.sql = S_OdemelerSablon.sql
 		S_OdemeTipi.sql = S_OdemeTipi.sql
+		UDI_BlokTanimlari.sql = UDI_BlokTanimlari.sql
 		UDI_Borclandir.sql = UDI_Borclandir.sql
 		UDI_Kisi.sql = UDI_Kisi.sql
 		UDI_OdemeEkle.sql = UDI_OdemeEkle.sql

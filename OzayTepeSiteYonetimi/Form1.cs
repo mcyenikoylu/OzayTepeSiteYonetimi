@@ -84,7 +84,7 @@ namespace OzayTepeSiteYonetimi
                 lblKiraci.Text = string.Format("{0}, {1}", Kiraci, Oturuyor);
 
                 SiteDBEntities2 db = new SiteDBEntities2();
-                var odeme = db.S_Odemeler(Convert.ToInt32(id)).OrderByDescending(c => c.VadeTarihi).ThenBy(m => m.ID).ToList();
+                var odeme = db.S_Odemeler(Convert.ToInt32(id)).OrderByDescending(c => c.VadeTarihi).ToList();
                 gridControl2.DataSource = odeme;
                 kisiid = Convert.ToInt32(id);
             }
@@ -92,16 +92,7 @@ namespace OzayTepeSiteYonetimi
 
         private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            try
-            {
-
-            }
-            catch (Exception hata)
-            {
-
-                throw;
-            }
-            //Mesaj.MesajVer("Kayıt eklenmiştir.", Mesaj.MesajTipi.Onay, this);
+            
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -159,6 +150,51 @@ namespace OzayTepeSiteYonetimi
                 gridView2.SetFocusedRowCellValue("OdemeTarihi", null);
             }
                
+        }
+
+        private void gridView2_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
+        {
+            try
+            {
+                SiteDBEntities2 db = new SiteDBEntities2();
+                db.UDI_Borclandir(-1, -1, 0, (DateTime)System.Data.SqlTypes.SqlDateTime.Null, 2,
+                    (gridView2.GetFocusedRowCellValue("OdemeTarihi") == null) ? (DateTime)System.Data.SqlTypes.SqlDateTime.Null : (DateTime)gridView2.GetFocusedRowCellValue("OdemeTarihi"),
+                    (int)gridView2.GetFocusedRowCellValue("ID"),
+                    (gridView2.GetFocusedRowCellValue("Aciklama") == null) ? (String)System.Data.SqlTypes.SqlString.Null : gridView2.GetFocusedRowCellValue("Aciklama").ToString());
+                Mesaj.MesajVer("Kayıt güncellenmiştir.", Mesaj.MesajTipi.Onay, this);
+            }
+            catch (Exception hata)
+            {
+
+                throw;
+            }
+        }
+
+        private void navBarBlokTan_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            int rowhandle = gridView1.FocusedRowHandle;
+            BlokTanimlari frm = new BlokTanimlari();
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                
+            }
+            gridView1.FocusedRowHandle = rowhandle;
+        }
+
+        private void navBarDaireTan_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+
+        }
+
+        private void navBarOdemeTipiTan_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+
+        }
+
+        private void navBarKisilerListesi_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+
         }
     }
 }

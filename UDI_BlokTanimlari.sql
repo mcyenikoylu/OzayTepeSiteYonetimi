@@ -16,35 +16,33 @@ GO
 -- =============================================
 -- Author:		mcy
 -- Create date: 4.3.2020
--- Description:	vade adedi kadar ödeme planı çıkarır.
+-- Description:	blok ekle
 -- =============================================
-alter PROCEDURE UDI_Borclandir 
-	-- Add the parameters for the stored procedure here
-	@KisiID int,
-	@OdemeTipiID int,
-	@Tutar decimal(6,2),
-	@VadeTarihi date,
-	@IslemTipi int, --1:insert 2:update
-	@OdemeTarihi date,
+alter PROCEDURE UDI_BlokTanimlari
+	@IslemTipi int,-- 1: insert/update 2: delete
 	@KayitID int,
-	@Aciklama nvarchar(250)
+	@BlokAdi char(10)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-	if @KisiID > 0
+
+    if @IslemTipi = 1
 	begin
-		if @IslemTipi = 1
+		if @KayitID > 0
 		begin
-			insert into Odemeler (KisiID,OdemeTipiID,Tutar,VadeTarihi) 
-			values (@KisiID,@OdemeTipiID,@Tutar,@VadeTarihi)
+			update Bloklar set BlokAdi = @BlokAdi where ID = @KayitID
 		end
 		else
 		begin
-			update Odemeler set Tutar = @Tutar, OdemeTarihi = @OdemeTarihi, Aciklama = @Aciklama 
-			where ID = @KayitID
+			insert into Bloklar (BlokAdi) values (@BlokAdi)
 		end
 	end
+	else if @IslemTipi = 2
+	begin
+		update Bloklar set IsDeleted = 1 where ID = @KayitID
+	end
+	
 END
 GO

@@ -148,7 +148,7 @@ namespace OzayTepeSiteYonetimi
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<S_OdemelerSablon_Result>("S_OdemelerSablon");
         }
     
-        public virtual int UDI_Borclandir(Nullable<int> kisiID, Nullable<int> odemeTipiID, Nullable<decimal> tutar, Nullable<System.DateTime> vadeTarihi)
+        public virtual int UDI_Borclandir(Nullable<int> kisiID, Nullable<int> odemeTipiID, Nullable<decimal> tutar, Nullable<System.DateTime> vadeTarihi, Nullable<int> islemTipi, Nullable<System.DateTime> odemeTarihi, Nullable<int> kayitID, string aciklama)
         {
             var kisiIDParameter = kisiID.HasValue ?
                 new ObjectParameter("KisiID", kisiID) :
@@ -166,7 +166,40 @@ namespace OzayTepeSiteYonetimi
                 new ObjectParameter("VadeTarihi", vadeTarihi) :
                 new ObjectParameter("VadeTarihi", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDI_Borclandir", kisiIDParameter, odemeTipiIDParameter, tutarParameter, vadeTarihiParameter);
+            var islemTipiParameter = islemTipi.HasValue ?
+                new ObjectParameter("IslemTipi", islemTipi) :
+                new ObjectParameter("IslemTipi", typeof(int));
+    
+            var odemeTarihiParameter = odemeTarihi.HasValue ?
+                new ObjectParameter("OdemeTarihi", odemeTarihi) :
+                new ObjectParameter("OdemeTarihi", typeof(System.DateTime));
+    
+            var kayitIDParameter = kayitID.HasValue ?
+                new ObjectParameter("KayitID", kayitID) :
+                new ObjectParameter("KayitID", typeof(int));
+    
+            var aciklamaParameter = aciklama != null ?
+                new ObjectParameter("Aciklama", aciklama) :
+                new ObjectParameter("Aciklama", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDI_Borclandir", kisiIDParameter, odemeTipiIDParameter, tutarParameter, vadeTarihiParameter, islemTipiParameter, odemeTarihiParameter, kayitIDParameter, aciklamaParameter);
+        }
+    
+        public virtual int UDI_BlokTanimlari(Nullable<int> islemTipi, Nullable<int> kayitID, string blokAdi)
+        {
+            var islemTipiParameter = islemTipi.HasValue ?
+                new ObjectParameter("IslemTipi", islemTipi) :
+                new ObjectParameter("IslemTipi", typeof(int));
+    
+            var kayitIDParameter = kayitID.HasValue ?
+                new ObjectParameter("KayitID", kayitID) :
+                new ObjectParameter("KayitID", typeof(int));
+    
+            var blokAdiParameter = blokAdi != null ?
+                new ObjectParameter("BlokAdi", blokAdi) :
+                new ObjectParameter("BlokAdi", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDI_BlokTanimlari", islemTipiParameter, kayitIDParameter, blokAdiParameter);
         }
     }
 }

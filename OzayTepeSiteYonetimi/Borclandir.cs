@@ -142,7 +142,8 @@ namespace OzayTepeSiteYonetimi
                         dtmMaxTarih = dateEdit1.DateTime.Date;
                         if(i == 0)
                         {
-                            db.UDI_Borclandir(kisiid, (int)lookUpEdit1.EditValue, (decimal)txtTutar.EditValue, dtmMaxTarih);
+                            db.UDI_Borclandir(kisiid, (int)lookUpEdit1.EditValue, (decimal)txtTutar.EditValue, dtmMaxTarih, 
+                                1, null,-1,null);
                             OncekiTarih = dtmMaxTarih;
                         }
                         else
@@ -163,14 +164,15 @@ namespace OzayTepeSiteYonetimi
                             }
 
                             db.UDI_Borclandir(kisiid, (int)lookUpEdit1.EditValue, (decimal)txtTutar.EditValue,
-                                dtmTemp);
+                                dtmTemp,1, null, -1, null);
 
                             OncekiTarih = dtmTemp;
                         }
                     }
                 }
                 else
-                    db.UDI_Borclandir(kisiid, (int)lookUpEdit1.EditValue, (decimal)txtTutar.EditValue, dateEdit1.DateTime.Date);
+                    db.UDI_Borclandir(kisiid, (int)lookUpEdit1.EditValue, (decimal)txtTutar.EditValue, dateEdit1.DateTime.Date,
+                        1, null, -1, null);
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();

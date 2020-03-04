@@ -15,11 +15,20 @@
         </Function>
         <Function Name="S_OdemelerSablon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="S_OdemeTipi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UDI_BlokTanimlari" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IslemTipi" Type="int" Mode="In" />
+          <Parameter Name="KayitID" Type="int" Mode="In" />
+          <Parameter Name="BlokAdi" Type="char" Mode="In" />
+        </Function>
         <Function Name="UDI_Borclandir" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KisiID" Type="int" Mode="In" />
           <Parameter Name="OdemeTipiID" Type="int" Mode="In" />
           <Parameter Name="Tutar" Type="decimal" Mode="In" />
           <Parameter Name="VadeTarihi" Type="date" Mode="In" />
+          <Parameter Name="IslemTipi" Type="int" Mode="In" />
+          <Parameter Name="OdemeTarihi" Type="date" Mode="In" />
+          <Parameter Name="KayitID" Type="int" Mode="In" />
+          <Parameter Name="Aciklama" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="UDI_Kisi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IslemTipi" Type="int" Mode="In" />
@@ -86,6 +95,15 @@
             <Parameter Name="OdemeTipiID" Mode="In" Type="Int32" />
             <Parameter Name="Tutar" Mode="In" Type="Decimal" />
             <Parameter Name="VadeTarihi" Mode="In" Type="DateTime" />
+            <Parameter Name="IslemTipi" Mode="In" Type="Int32" />
+            <Parameter Name="OdemeTarihi" Mode="In" Type="DateTime" />
+            <Parameter Name="KayitID" Mode="In" Type="Int32" />
+            <Parameter Name="Aciklama" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDI_BlokTanimlari">
+            <Parameter Name="IslemTipi" Mode="In" Type="Int32" />
+            <Parameter Name="KayitID" Mode="In" Type="Int32" />
+            <Parameter Name="BlokAdi" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="S_Kisiler_Result">
@@ -104,6 +122,7 @@
         <ComplexType Name="S_Bloklar_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="BlokAdi" Nullable="true" MaxLength="10" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
         </ComplexType>
         <ComplexType Name="S_Daireler_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -169,6 +188,7 @@
               <ComplexTypeMapping TypeName="SiteDBModel.S_Bloklar_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BlokAdi" ColumnName="BlokAdi" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -227,6 +247,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UDI_Borclandir" FunctionName="SiteDBModel.Store.UDI_Borclandir" />
+          <FunctionImportMapping FunctionImportName="UDI_BlokTanimlari" FunctionName="SiteDBModel.Store.UDI_BlokTanimlari" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

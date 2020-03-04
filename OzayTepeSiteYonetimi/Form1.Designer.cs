@@ -328,30 +328,35 @@
             this.navBarKisilerListesi.Caption = "Kişiler Listesi";
             this.navBarKisilerListesi.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarKisilerListesi.ImageOptions.SmallImage")));
             this.navBarKisilerListesi.Name = "navBarKisilerListesi";
+            this.navBarKisilerListesi.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarKisilerListesi_LinkClicked);
             // 
             // navBarGridAyarKaydet
             // 
             this.navBarGridAyarKaydet.Caption = "Grid Ayarlarını Kaydet";
             this.navBarGridAyarKaydet.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGridAyarKaydet.ImageOptions.SmallImage")));
             this.navBarGridAyarKaydet.Name = "navBarGridAyarKaydet";
+            this.navBarGridAyarKaydet.Visible = false;
             // 
             // navBarBlokTan
             // 
             this.navBarBlokTan.Caption = "Blok Tanımları";
             this.navBarBlokTan.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarBlokTan.ImageOptions.SmallImage")));
             this.navBarBlokTan.Name = "navBarBlokTan";
+            this.navBarBlokTan.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarBlokTan_LinkClicked);
             // 
             // navBarDaireTan
             // 
             this.navBarDaireTan.Caption = "Daire Tanımları";
             this.navBarDaireTan.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarDaireTan.ImageOptions.SmallImage")));
             this.navBarDaireTan.Name = "navBarDaireTan";
+            this.navBarDaireTan.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarDaireTan_LinkClicked);
             // 
             // navBarOdemeTipiTan
             // 
             this.navBarOdemeTipiTan.Caption = "Ödeme Tipi Tanımları";
             this.navBarOdemeTipiTan.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarOdemeTipiTan.ImageOptions.SmallImage")));
             this.navBarOdemeTipiTan.Name = "navBarOdemeTipiTan";
+            this.navBarOdemeTipiTan.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarOdemeTipiTan_LinkClicked);
             // 
             // cariIslemleriNavBarGroup
             // 
@@ -603,6 +608,7 @@
             this.gridView2.OptionsView.ShowFooter = true;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView2_FocusedRowChanged);
+            this.gridView2.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView2_RowUpdated);
             // 
             // colID1
             // 
