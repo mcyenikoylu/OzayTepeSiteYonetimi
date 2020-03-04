@@ -217,5 +217,13 @@ namespace OzayTepeSiteYonetimi
         {
 
         }
+
+        private void dtCikisTarihi_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if(e.Button.Kind.ToString() == "Clear")
+            {
+                dtCikisTarihi.EditValue = null;
+            }
+        }
     }
 }

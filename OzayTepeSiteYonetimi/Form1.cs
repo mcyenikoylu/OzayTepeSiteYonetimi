@@ -84,7 +84,7 @@ namespace OzayTepeSiteYonetimi
                 lblKiraci.Text = string.Format("{0}, {1}", Kiraci, Oturuyor);
 
                 SiteDBEntities2 db = new SiteDBEntities2();
-                var odeme = db.S_Odemeler(Convert.ToInt32(id)).ToList();
+                var odeme = db.S_Odemeler(Convert.ToInt32(id)).OrderByDescending(c => c.VadeTarihi).ThenBy(m => m.ID).ToList();
                 gridControl2.DataSource = odeme;
                 kisiid = Convert.ToInt32(id);
             }
@@ -140,7 +140,25 @@ namespace OzayTepeSiteYonetimi
 
         private void navBarOdemeEkle_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            int rowhandle = gridView1.FocusedRowHandle;
+            OdemeEkle frm = new OdemeEkle(kisiid, lblAdSoyad.Text, -1);
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                SiteDBEntities2 db = new SiteDBEntities2();
+                var odeme = db.S_Odemeler(kisiid).OrderByDescending(c => c.VadeTarihi).ThenByDescending(m => m.ID).ToList();
+                gridControl2.DataSource = odeme;
+            }
+            gridView1.FocusedRowHandle = rowhandle;
+        }
 
+        private void repositoryItemDateEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if(e.Button.Kind.ToString() == "Clear")
+            {
+                gridView2.SetFocusedRowCellValue("OdemeTarihi", null);
+            }
+               
         }
     }
 }

@@ -40,6 +40,7 @@ namespace OzayTepeSiteYonetimi
                 db.UDI_OdemeEkle(1, _id, -1, (DateTime)dtTarih.EditValue, (int)lookUpEdit1.EditValue, 
                     (decimal)textEdit1.EditValue, memoEdit1.EditValue.ToString());
                 Mesaj.MesajVer("Kayıt eklenmiştir.", Mesaj.MesajTipi.Onay, this);
+
             }
             catch (Exception hata)
             {
