@@ -28,7 +28,7 @@ namespace OzayTepeSiteYonetimi
         {
             lblAdiSoyadi.Text = _adi;
             SiteDBEntities2 db = new SiteDBEntities2();
-            var odemeTipi = db.S_OdemeTipi().ToList();
+            var odemeTipi = db.S_OdemeTipi().Where(c => c.IsDeleted == false).ToList();
             lookUpEdit1.Properties.DataSource = odemeTipi;
         }
 

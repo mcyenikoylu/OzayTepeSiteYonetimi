@@ -128,7 +128,7 @@ namespace OzayTepeSiteYonetimi
 
         private void btnGridAyar_SayfaOnizleme_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            _GridView.ShowPrintPreview();
         }
 
         private void btnGridAyar_KolonFiltreTipi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

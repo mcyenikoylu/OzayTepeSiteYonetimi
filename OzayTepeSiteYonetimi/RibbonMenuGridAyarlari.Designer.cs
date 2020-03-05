@@ -204,6 +204,7 @@
             this.btnGridAyar_DisaAktar.Id = 13;
             this.btnGridAyar_DisaAktar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGridAyar_DisaAktar.ImageOptions.Image")));
             this.btnGridAyar_DisaAktar.Name = "btnGridAyar_DisaAktar";
+            this.btnGridAyar_DisaAktar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // btnGridAyar_GridAyarKaydet
             // 
@@ -211,6 +212,7 @@
             this.btnGridAyar_GridAyarKaydet.Id = 14;
             this.btnGridAyar_GridAyarKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGridAyar_GridAyarKaydet.ImageOptions.Image")));
             this.btnGridAyar_GridAyarKaydet.Name = "btnGridAyar_GridAyarKaydet";
+            this.btnGridAyar_GridAyarKaydet.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // ribbonPage1
             // 

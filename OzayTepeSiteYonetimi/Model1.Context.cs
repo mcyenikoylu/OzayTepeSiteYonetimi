@@ -240,5 +240,10 @@ namespace OzayTepeSiteYonetimi
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<S_KisilerListesi_Result>("S_KisilerListesi");
         }
+    
+        public virtual ObjectResult<S_CariIslemler_Result> S_CariIslemler()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<S_CariIslemler_Result>("S_CariIslemler");
+        }
     }
 }

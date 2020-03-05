@@ -23,6 +23,18 @@ namespace OzayTepeSiteYonetimi
         void navBarControl_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
         {
             navigationFrame.SelectedPageIndex = navBarControl.Groups.IndexOf(e.Group);
+
+            if (navigationFrame.SelectedPageIndex == 0)
+            {
+                KisiGridGetir();
+                RibbonMenuGridAyarlari uc_gridAyarlari = new RibbonMenuGridAyarlari(ribbonPage.Text);
+                uc_gridAyarlari.GrdView = gridView1;
+                ribbonControl.MergeRibbon(uc_gridAyarlari.ribbonControl1);
+            }
+            else if (navigationFrame.SelectedPageIndex == 0)
+            {
+                CariGridGetir();
+            }
         }
         void barButtonNavigation_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -33,7 +45,9 @@ namespace OzayTepeSiteYonetimi
         private void Form1_Load(object sender, EventArgs e)
         {
             RibbonMenuGridAyarlari uc_gridAyarlari = new RibbonMenuGridAyarlari(ribbonPage.Text);
-            uc_gridAyarlari.GrdView = gridView1;
+            if (navigationFrame.SelectedPageIndex == 0)
+                uc_gridAyarlari.GrdView = gridView1;
+
             ribbonControl.MergeRibbon(uc_gridAyarlari.ribbonControl1);
 
             SiteDBEntities2 db = new SiteDBEntities2();
@@ -43,8 +57,23 @@ namespace OzayTepeSiteYonetimi
             repositoryItemLookUpEdit2.DataSource = daireler;
             var odemeTipi = db.S_OdemeTipi().ToList();
             repositoryItemLookUpEdit3.DataSource = odemeTipi;
+
+            KisiGridGetir();
+            CariGridGetir();
+        }
+
+        void KisiGridGetir()
+        {
+            SiteDBEntities2 db = new SiteDBEntities2();
             var list = db.S_Kisiler(-1).Where(c => c.IsDeleted == false).ToList();
             gridControl1.DataSource = list;
+        }
+
+        void CariGridGetir()
+        {
+            SiteDBEntities2 db = new SiteDBEntities2();
+            var cari = db.S_CariIslemler().ToList();
+            pivotGridControl1.DataSource = cari;
         }
 
         private void navBarYeniKisiEkle_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -67,8 +96,8 @@ namespace OzayTepeSiteYonetimi
             if (id != "" || id != null)
             {
                 lblAdSoyad.Text = gridView1.GetRowCellValue(i, "AdiSoyadi").ToString();
-                
-                lblBlok.Text = string.Format("{0} Blok, Daire {1}", repositoryItemLookUpEdit1.GetDisplayText(gridView1.GetRowCellValue(i,"BlokAdiID")).Trim(),
+
+                lblBlok.Text = string.Format("{0} Blok, Daire {1}", repositoryItemLookUpEdit1.GetDisplayText(gridView1.GetRowCellValue(i, "BlokAdiID")).Trim(),
                     repositoryItemLookUpEdit2.GetDisplayText(gridView1.GetFocusedRowCellValue("DaireAdiID")).Trim());
 
                 string Kiraci, Oturuyor = "";
@@ -87,7 +116,7 @@ namespace OzayTepeSiteYonetimi
                 lblKiraci.Text = string.Format("{0}, {1}", Kiraci, Oturuyor);
 
                 SiteDBEntities2 db = new SiteDBEntities2();
-                var odeme = db.S_Odemeler(Convert.ToInt32(id)).OrderByDescending(c => c.VadeTarihi).ToList();
+                var odeme = db.S_Odemeler(Convert.ToInt32(id)).Where(c => c.IsDeleted == false).OrderByDescending(c => c.VadeTarihi).ToList();
                 gridControl2.DataSource = odeme;
                 kisiid = Convert.ToInt32(id);
             }
@@ -95,7 +124,7 @@ namespace OzayTepeSiteYonetimi
 
         private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            
+
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -123,7 +152,7 @@ namespace OzayTepeSiteYonetimi
             int id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("ID"));
             string ad = gridView1.GetFocusedRowCellValue("AdiSoyadi").ToString();
             int rowhandle = gridView1.FocusedRowHandle;
-            Borclandir frm = new Borclandir(id,ad);
+            Borclandir frm = new Borclandir(id, ad);
             frm.ShowDialog();
             if (frm.DialogResult == DialogResult.OK)
             {
@@ -148,13 +177,13 @@ namespace OzayTepeSiteYonetimi
 
         private void repositoryItemDateEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            if(e.Button.Kind.ToString() == "Clear")
+            if (e.Button.Kind.ToString() == "Clear")
             {
                 gridView2.SetFocusedRowCellValue("OdemeTarihi", null);
                 //string t = gridView2.GetFocusedRowCellValue("Tutar").ToString();
                 //gridView2.SetFocusedRowCellValue("Tutar", Convert.ToDecimal("-"+t));
             }
-               
+
         }
 
         private void gridView2_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
@@ -162,7 +191,7 @@ namespace OzayTepeSiteYonetimi
             try
             {
                 SiteDBEntities2 db = new SiteDBEntities2();
-          
+
                 db.UDI_Borclandir(-1, -1, 0, (DateTime)System.Data.SqlTypes.SqlDateTime.Null, 2,
                     (gridView2.GetFocusedRowCellValue("OdemeTarihi") == null) ? (DateTime)System.Data.SqlTypes.SqlDateTime.Null : (DateTime)gridView2.GetFocusedRowCellValue("OdemeTarihi"),
                     (int)gridView2.GetFocusedRowCellValue("ID"),
@@ -184,7 +213,7 @@ namespace OzayTepeSiteYonetimi
             frm.ShowDialog();
             if (frm.DialogResult == DialogResult.OK)
             {
-                
+
             }
             gridView1.FocusedRowHandle = rowhandle;
         }
@@ -235,5 +264,24 @@ namespace OzayTepeSiteYonetimi
 
 
         }
+
+        private void pivotGridControl1_FieldValueDisplayText(object sender, DevExpress.XtraPivotGrid.PivotFieldDisplayTextEventArgs e)
+        {
+            if (e.ValueType == DevExpress.XtraPivotGrid.PivotGridValueType.GrandTotal)
+            {
+                if (e.IsColumn)
+                    e.DisplayText = "Genel Sütun Toplamı";
+                else
+                    e.DisplayText = "Genel Satır Toplamı";
+            }
+            if (e.ValueType == DevExpress.XtraPivotGrid.PivotGridValueType.Total)
+            {
+                if (e.IsColumn)
+                    e.DisplayText = "Sütun Toplamı";
+                else
+                    e.DisplayText = "Satır Toplamı";
+            }
+        }
+      
     }
 }

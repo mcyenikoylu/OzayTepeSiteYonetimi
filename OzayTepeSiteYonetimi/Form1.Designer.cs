@@ -35,6 +35,8 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraPivotGrid.PivotGridGroup pivotGridGroup1 = new DevExpress.XtraPivotGrid.PivotGridGroup();
+            this.fieldOdemeAdi1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinRibbonGalleryBarItem = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
@@ -44,6 +46,7 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupNavigation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -109,7 +112,30 @@
             this.lblAdSoyad = new DevExpress.XtraEditors.LabelControl();
             this.lblBlok = new DevExpress.XtraEditors.LabelControl();
             this.customersNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.customersLabelControl = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.pivotGridControl1 = new DevExpress.XtraPivotGrid.PivotGridControl();
+            this.sCariIslemlerResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fieldID1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldAy1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldYil1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldOdemeTarihi1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldKayitTarihi1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldAciklama1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldTutar1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldKisiID1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldAdiSoyadi1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldOdemeTipiID1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldVadeTarihi1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldGuncellemeTarihi1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldBlokAdi1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldDaireNo1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldOturuyorAyrildi1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldKiraciEvsahibi1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldDaireCikisTarihi1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldDaireGirisTarihi1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldNotlar1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.pivotMulkDurumu = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.pivotYasamDurumu = new DevExpress.XtraPivotGrid.PivotGridField();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
@@ -142,7 +168,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.customersNavigationPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sCariIslemlerResultBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // fieldOdemeAdi1
+            // 
+            this.fieldOdemeAdi1.AreaIndex = 0;
+            this.fieldOdemeAdi1.Caption = "Odeme Adi";
+            this.fieldOdemeAdi1.FieldName = "OdemeAdi";
+            this.fieldOdemeAdi1.Name = "fieldOdemeAdi1";
             // 
             // ribbonControl
             // 
@@ -155,9 +192,10 @@
             this.customersBarButtonItem,
             this.barButtonItem1,
             this.barButtonItem2,
-            this.barButtonItem3});
+            this.barButtonItem3,
+            this.barStaticItem2});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 49;
+            this.ribbonControl.MaxItemId = 51;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -175,7 +213,7 @@
             // 
             // barSubItemNavigation
             // 
-            this.barSubItemNavigation.Caption = "Navigation";
+            this.barSubItemNavigation.Caption = "Modüller";
             this.barSubItemNavigation.Id = 15;
             this.barSubItemNavigation.ImageOptions.ImageUri.Uri = "NavigationBar";
             this.barSubItemNavigation.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
@@ -185,14 +223,14 @@
             // 
             // employeesBarButtonItem
             // 
-            this.employeesBarButtonItem.Caption = "Employees";
+            this.employeesBarButtonItem.Caption = "Kişiler";
             this.employeesBarButtonItem.Id = 44;
             this.employeesBarButtonItem.Name = "employeesBarButtonItem";
             this.employeesBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
             // 
             // customersBarButtonItem
             // 
-            this.customersBarButtonItem.Caption = "Customers";
+            this.customersBarButtonItem.Caption = "Cari İşlemler";
             this.customersBarButtonItem.Id = 45;
             this.customersBarButtonItem.Name = "customersBarButtonItem";
             this.customersBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
@@ -219,6 +257,13 @@
             this.barButtonItem3.Id = 48;
             this.barButtonItem3.Name = "barButtonItem3";
             // 
+            // barStaticItem2
+            // 
+            this.barStaticItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barStaticItem2.Caption = "dotnetmcy.com";
+            this.barStaticItem2.Id = 50;
+            this.barStaticItem2.Name = "barStaticItem2";
+            // 
             // ribbonPage
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -226,7 +271,7 @@
             this.ribbonPageGroup,
             this.ribbonPageGroup1});
             this.ribbonPage.Name = "ribbonPage";
-            this.ribbonPage.Text = "Özay Tepe Sitesi - Site Yönetim Programi";
+            this.ribbonPage.Text = "Özay Tepe Sitesi";
             // 
             // ribbonPageGroupNavigation
             // 
@@ -251,6 +296,7 @@
             // 
             // ribbonStatusBar
             // 
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem2);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 642);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
@@ -365,7 +411,7 @@
             // 
             // cariIslemleriNavBarGroup
             // 
-            this.cariIslemleriNavBarGroup.Caption = "Cari İşlemleri";
+            this.cariIslemleriNavBarGroup.Caption = "Cari İşlemler";
             this.cariIslemleriNavBarGroup.Name = "cariIslemleriNavBarGroup";
             // 
             // navigationFrame
@@ -803,26 +849,230 @@
             // 
             // customersNavigationPage
             // 
-            this.customersNavigationPage.Controls.Add(this.customersLabelControl);
+            this.customersNavigationPage.Controls.Add(this.panelControl3);
             this.customersNavigationPage.Name = "customersNavigationPage";
             this.customersNavigationPage.Size = new System.Drawing.Size(625, 453);
             // 
-            // customersLabelControl
+            // panelControl3
             // 
-            this.customersLabelControl.Appearance.Font = new System.Drawing.Font("Tahoma", 25.25F);
-            this.customersLabelControl.Appearance.ForeColor = System.Drawing.Color.Gray;
-            this.customersLabelControl.Appearance.Options.UseFont = true;
-            this.customersLabelControl.Appearance.Options.UseForeColor = true;
-            this.customersLabelControl.Appearance.Options.UseTextOptions = true;
-            this.customersLabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.customersLabelControl.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.customersLabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.customersLabelControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customersLabelControl.Location = new System.Drawing.Point(0, 0);
-            this.customersLabelControl.Name = "customersLabelControl";
-            this.customersLabelControl.Size = new System.Drawing.Size(625, 453);
-            this.customersLabelControl.TabIndex = 1;
-            this.customersLabelControl.Text = "Customers";
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.pivotGridControl1);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(0, 0);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(625, 453);
+            this.panelControl3.TabIndex = 0;
+            // 
+            // pivotGridControl1
+            // 
+            this.pivotGridControl1.DataSource = this.sCariIslemlerResultBindingSource;
+            this.pivotGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pivotGridControl1.Fields.AddRange(new DevExpress.XtraPivotGrid.PivotGridField[] {
+            this.fieldID1,
+            this.fieldAy1,
+            this.fieldYil1,
+            this.fieldOdemeTarihi1,
+            this.fieldKayitTarihi1,
+            this.fieldAciklama1,
+            this.fieldTutar1,
+            this.fieldKisiID1,
+            this.fieldAdiSoyadi1,
+            this.fieldOdemeTipiID1,
+            this.fieldVadeTarihi1,
+            this.fieldGuncellemeTarihi1,
+            this.fieldBlokAdi1,
+            this.fieldDaireNo1,
+            this.fieldOturuyorAyrildi1,
+            this.fieldKiraciEvsahibi1,
+            this.fieldDaireCikisTarihi1,
+            this.fieldDaireGirisTarihi1,
+            this.fieldNotlar1,
+            this.fieldOdemeAdi1,
+            this.pivotMulkDurumu,
+            this.pivotYasamDurumu});
+            pivotGridGroup1.Fields.Add(this.fieldOdemeAdi1);
+            pivotGridGroup1.Hierarchy = null;
+            this.pivotGridControl1.Groups.AddRange(new DevExpress.XtraPivotGrid.PivotGridGroup[] {
+            pivotGridGroup1});
+            this.pivotGridControl1.Location = new System.Drawing.Point(0, 0);
+            this.pivotGridControl1.Name = "pivotGridControl1";
+            this.pivotGridControl1.Size = new System.Drawing.Size(625, 453);
+            this.pivotGridControl1.TabIndex = 0;
+            this.pivotGridControl1.FieldValueDisplayText += new DevExpress.XtraPivotGrid.PivotFieldDisplayTextEventHandler(this.pivotGridControl1_FieldValueDisplayText);
+            // 
+            // sCariIslemlerResultBindingSource
+            // 
+            this.sCariIslemlerResultBindingSource.DataSource = typeof(OzayTepeSiteYonetimi.S_CariIslemler_Result);
+            // 
+            // fieldID1
+            // 
+            this.fieldID1.AreaIndex = 0;
+            this.fieldID1.Caption = "ID";
+            this.fieldID1.FieldName = "ID";
+            this.fieldID1.Name = "fieldID1";
+            this.fieldID1.Visible = false;
+            // 
+            // fieldAy1
+            // 
+            this.fieldAy1.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
+            this.fieldAy1.AreaIndex = 1;
+            this.fieldAy1.Caption = "Ay";
+            this.fieldAy1.FieldName = "Ay";
+            this.fieldAy1.Name = "fieldAy1";
+            // 
+            // fieldYil1
+            // 
+            this.fieldYil1.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
+            this.fieldYil1.AreaIndex = 0;
+            this.fieldYil1.Caption = "Yil";
+            this.fieldYil1.FieldName = "Yil";
+            this.fieldYil1.Name = "fieldYil1";
+            // 
+            // fieldOdemeTarihi1
+            // 
+            this.fieldOdemeTarihi1.AreaIndex = 0;
+            this.fieldOdemeTarihi1.Caption = "Odeme Tarihi";
+            this.fieldOdemeTarihi1.FieldName = "OdemeTarihi";
+            this.fieldOdemeTarihi1.Name = "fieldOdemeTarihi1";
+            this.fieldOdemeTarihi1.Visible = false;
+            // 
+            // fieldKayitTarihi1
+            // 
+            this.fieldKayitTarihi1.AreaIndex = 3;
+            this.fieldKayitTarihi1.Caption = "Kayit Tarihi";
+            this.fieldKayitTarihi1.FieldName = "KayitTarihi";
+            this.fieldKayitTarihi1.Name = "fieldKayitTarihi1";
+            this.fieldKayitTarihi1.Visible = false;
+            // 
+            // fieldAciklama1
+            // 
+            this.fieldAciklama1.AreaIndex = 3;
+            this.fieldAciklama1.Caption = "Aciklama";
+            this.fieldAciklama1.FieldName = "Aciklama";
+            this.fieldAciklama1.Name = "fieldAciklama1";
+            this.fieldAciklama1.Visible = false;
+            // 
+            // fieldTutar1
+            // 
+            this.fieldTutar1.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.fieldTutar1.AreaIndex = 0;
+            this.fieldTutar1.Caption = "Tutar";
+            this.fieldTutar1.CellFormat.FormatString = "n2";
+            this.fieldTutar1.CellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.fieldTutar1.FieldName = "Tutar";
+            this.fieldTutar1.Name = "fieldTutar1";
+            // 
+            // fieldKisiID1
+            // 
+            this.fieldKisiID1.AreaIndex = 4;
+            this.fieldKisiID1.Caption = "Kisi ID";
+            this.fieldKisiID1.FieldName = "KisiID";
+            this.fieldKisiID1.Name = "fieldKisiID1";
+            this.fieldKisiID1.Visible = false;
+            // 
+            // fieldAdiSoyadi1
+            // 
+            this.fieldAdiSoyadi1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldAdiSoyadi1.AreaIndex = 1;
+            this.fieldAdiSoyadi1.Caption = "Adi Soyadi";
+            this.fieldAdiSoyadi1.FieldName = "AdiSoyadi";
+            this.fieldAdiSoyadi1.Name = "fieldAdiSoyadi1";
+            // 
+            // fieldOdemeTipiID1
+            // 
+            this.fieldOdemeTipiID1.AreaIndex = 5;
+            this.fieldOdemeTipiID1.Caption = "Odeme Tipi ID";
+            this.fieldOdemeTipiID1.FieldName = "OdemeTipiID";
+            this.fieldOdemeTipiID1.Name = "fieldOdemeTipiID1";
+            this.fieldOdemeTipiID1.Visible = false;
+            // 
+            // fieldVadeTarihi1
+            // 
+            this.fieldVadeTarihi1.AreaIndex = 0;
+            this.fieldVadeTarihi1.Caption = "Vade Tarihi";
+            this.fieldVadeTarihi1.FieldName = "VadeTarihi";
+            this.fieldVadeTarihi1.Name = "fieldVadeTarihi1";
+            this.fieldVadeTarihi1.Visible = false;
+            // 
+            // fieldGuncellemeTarihi1
+            // 
+            this.fieldGuncellemeTarihi1.AreaIndex = 6;
+            this.fieldGuncellemeTarihi1.Caption = "Guncelleme Tarihi";
+            this.fieldGuncellemeTarihi1.FieldName = "GuncellemeTarihi";
+            this.fieldGuncellemeTarihi1.Name = "fieldGuncellemeTarihi1";
+            this.fieldGuncellemeTarihi1.Visible = false;
+            // 
+            // fieldBlokAdi1
+            // 
+            this.fieldBlokAdi1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldBlokAdi1.AreaIndex = 0;
+            this.fieldBlokAdi1.Caption = "Blok Adi";
+            this.fieldBlokAdi1.FieldName = "BlokAdi";
+            this.fieldBlokAdi1.Name = "fieldBlokAdi1";
+            // 
+            // fieldDaireNo1
+            // 
+            this.fieldDaireNo1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldDaireNo1.AreaIndex = 2;
+            this.fieldDaireNo1.Caption = "Daire No";
+            this.fieldDaireNo1.FieldName = "DaireNo";
+            this.fieldDaireNo1.Name = "fieldDaireNo1";
+            // 
+            // fieldOturuyorAyrildi1
+            // 
+            this.fieldOturuyorAyrildi1.AreaIndex = 8;
+            this.fieldOturuyorAyrildi1.Caption = "Oturuyor Ayrildi";
+            this.fieldOturuyorAyrildi1.FieldName = "OturuyorAyrildi";
+            this.fieldOturuyorAyrildi1.Name = "fieldOturuyorAyrildi1";
+            this.fieldOturuyorAyrildi1.Visible = false;
+            // 
+            // fieldKiraciEvsahibi1
+            // 
+            this.fieldKiraciEvsahibi1.AreaIndex = 8;
+            this.fieldKiraciEvsahibi1.Caption = "Kiraci Evsahibi";
+            this.fieldKiraciEvsahibi1.FieldName = "KiraciEvsahibi";
+            this.fieldKiraciEvsahibi1.Name = "fieldKiraciEvsahibi1";
+            this.fieldKiraciEvsahibi1.Visible = false;
+            // 
+            // fieldDaireCikisTarihi1
+            // 
+            this.fieldDaireCikisTarihi1.AreaIndex = 8;
+            this.fieldDaireCikisTarihi1.Caption = "Daire Cikis Tarihi";
+            this.fieldDaireCikisTarihi1.FieldName = "DaireCikisTarihi";
+            this.fieldDaireCikisTarihi1.Name = "fieldDaireCikisTarihi1";
+            this.fieldDaireCikisTarihi1.Visible = false;
+            // 
+            // fieldDaireGirisTarihi1
+            // 
+            this.fieldDaireGirisTarihi1.AreaIndex = 8;
+            this.fieldDaireGirisTarihi1.Caption = "Daire Giris Tarihi";
+            this.fieldDaireGirisTarihi1.FieldName = "DaireGirisTarihi";
+            this.fieldDaireGirisTarihi1.Name = "fieldDaireGirisTarihi1";
+            this.fieldDaireGirisTarihi1.Visible = false;
+            // 
+            // fieldNotlar1
+            // 
+            this.fieldNotlar1.AreaIndex = 8;
+            this.fieldNotlar1.Caption = "Notlar";
+            this.fieldNotlar1.FieldName = "Notlar";
+            this.fieldNotlar1.Name = "fieldNotlar1";
+            this.fieldNotlar1.Visible = false;
+            // 
+            // pivotMulkDurumu
+            // 
+            this.pivotMulkDurumu.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
+            this.pivotMulkDurumu.AreaIndex = 2;
+            this.pivotMulkDurumu.FieldName = "MulkDurumu";
+            this.pivotMulkDurumu.Name = "pivotMulkDurumu";
+            this.pivotMulkDurumu.Visible = false;
+            // 
+            // pivotYasamDurumu
+            // 
+            this.pivotYasamDurumu.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
+            this.pivotYasamDurumu.AreaIndex = 3;
+            this.pivotYasamDurumu.FieldName = "YasamDurumu";
+            this.pivotYasamDurumu.Name = "pivotYasamDurumu";
+            this.pivotYasamDurumu.Visible = false;
             // 
             // ribbonPageGroup3
             // 
@@ -844,6 +1094,7 @@
             this.Ribbon = this.ribbonControl;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
+            this.Text = "Site Apartman Yönetim Programı";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).EndInit();
@@ -878,6 +1129,10 @@
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             this.customersNavigationPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sCariIslemlerResultBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -899,7 +1154,6 @@
         private DevExpress.XtraNavBar.NavBarGroup cariIslemleriNavBarGroup;
         private DevExpress.XtraBars.Navigation.NavigationPage employeesNavigationPage;
         private DevExpress.XtraBars.Navigation.NavigationPage customersNavigationPage;
-        private DevExpress.XtraEditors.LabelControl customersLabelControl;
         private DevExpress.XtraBars.BarButtonItem employeesBarButtonItem;
         private DevExpress.XtraBars.BarButtonItem customersBarButtonItem;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
@@ -960,5 +1214,31 @@
         private DevExpress.XtraEditors.LabelControl lblKiraci;
         private DevExpress.XtraNavBar.NavBarItem navBarBorclandir;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private System.Windows.Forms.BindingSource sCariIslemlerResultBindingSource;
+        private DevExpress.XtraPivotGrid.PivotGridControl pivotGridControl1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldID1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldAy1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldYil1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldOdemeTarihi1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldKayitTarihi1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldAciklama1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldTutar1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldKisiID1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldAdiSoyadi1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldOdemeTipiID1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldVadeTarihi1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldGuncellemeTarihi1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldBlokAdi1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldDaireNo1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldOturuyorAyrildi1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldKiraciEvsahibi1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldDaireCikisTarihi1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldDaireGirisTarihi1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldNotlar1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldOdemeAdi1;
+        private DevExpress.XtraPivotGrid.PivotGridField pivotMulkDurumu;
+        private DevExpress.XtraPivotGrid.PivotGridField pivotYasamDurumu;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem2;
     }
 }
