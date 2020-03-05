@@ -8,6 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using DevExpress.LookAndFeel;
+using DevExpress.XtraPrintingLinks;
 
 namespace OzayTepeSiteYonetimi
 {
@@ -148,6 +151,8 @@ namespace OzayTepeSiteYonetimi
             if(e.Button.Kind.ToString() == "Clear")
             {
                 gridView2.SetFocusedRowCellValue("OdemeTarihi", null);
+                //string t = gridView2.GetFocusedRowCellValue("Tutar").ToString();
+                //gridView2.SetFocusedRowCellValue("Tutar", Convert.ToDecimal("-"+t));
             }
                
         }
@@ -157,10 +162,12 @@ namespace OzayTepeSiteYonetimi
             try
             {
                 SiteDBEntities2 db = new SiteDBEntities2();
+          
                 db.UDI_Borclandir(-1, -1, 0, (DateTime)System.Data.SqlTypes.SqlDateTime.Null, 2,
                     (gridView2.GetFocusedRowCellValue("OdemeTarihi") == null) ? (DateTime)System.Data.SqlTypes.SqlDateTime.Null : (DateTime)gridView2.GetFocusedRowCellValue("OdemeTarihi"),
                     (int)gridView2.GetFocusedRowCellValue("ID"),
-                    (gridView2.GetFocusedRowCellValue("Aciklama") == null) ? (String)System.Data.SqlTypes.SqlString.Null : gridView2.GetFocusedRowCellValue("Aciklama").ToString());
+                    (gridView2.GetFocusedRowCellValue("Aciklama") == null) ? "" : gridView2.GetFocusedRowCellValue("Aciklama").ToString());
+
                 Mesaj.MesajVer("Kayıt güncellenmiştir.", Mesaj.MesajTipi.Onay, this);
             }
             catch (Exception hata)
@@ -208,6 +215,24 @@ namespace OzayTepeSiteYonetimi
 
         private void navBarKisilerListesi_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            SiteDBEntities2 db = new SiteDBEntities2();
+            XtraReport1 rpt = new XtraReport1();
+            var list = db.S_KisilerListesi().ToList();
+            rpt.DataSource = list;
+            using (ReportPrintTool printTool = new ReportPrintTool(rpt))
+            {
+                // Invoke the Print Preview form modally,  
+                // and load the report document into it. 
+                printTool.ShowPreviewDialog();
+                Cursor.Current = Cursors.Default;
+                // Invoke the Print Preview form 
+                // with the specified look and feel setting. 
+                //printTool.ShowPreviewDialog(UserLookAndFeel.Default);
+            }
+
+
+
 
         }
     }

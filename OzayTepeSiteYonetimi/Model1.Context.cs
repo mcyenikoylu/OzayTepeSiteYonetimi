@@ -235,5 +235,10 @@ namespace OzayTepeSiteYonetimi
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDI_OdemeTipiTanimlari", islemTipiParameter, kayitIDParameter, tipAdiParameter);
         }
+    
+        public virtual ObjectResult<S_KisilerListesi_Result> S_KisilerListesi()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<S_KisilerListesi_Result>("S_KisilerListesi");
+        }
     }
 }

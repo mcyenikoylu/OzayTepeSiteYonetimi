@@ -1,14 +1,6 @@
-﻿-- ================================================
--- Template generated from Template Explorer using:
--- Create Procedure (New Menu).SQL
---
--- Use the Specify Values for Template Parameters 
--- command (Ctrl-Shift-M) to fill in the parameter 
--- values below.
---
--- This block of comments will not be included in
--- the definition of the procedure.
--- ================================================
+﻿USE [SiteDB]
+GO
+/****** Object:  StoredProcedure [dbo].[UDI_OdemeEkle]    Script Date: 2020-03-05 6:42:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -18,7 +10,7 @@ GO
 -- Create date: 4.3.2020
 -- Description:	ödeme ekle
 -- =============================================
-CREATE PROCEDURE UDI_OdemeEkle
+ALTER PROCEDURE [dbo].[UDI_OdemeEkle]
 	@IsDeleted int, -- 1:insert/update 2:deleted  
 	@KisiID int,
 	@KayitID int,
@@ -52,4 +44,3 @@ BEGIN
 		update Odemeler set IsDeleted = 1 where ID = @KayitID
 	end
 END
-GO

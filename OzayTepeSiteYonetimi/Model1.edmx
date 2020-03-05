@@ -10,6 +10,7 @@
         <Function Name="S_Kisiler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
+        <Function Name="S_KisilerListesi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="S_Odemeler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KisiID" Type="int" Mode="In" />
         </Function>
@@ -125,6 +126,7 @@
             <Parameter Name="KayitID" Mode="In" Type="Int32" />
             <Parameter Name="TipAdi" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="S_KisilerListesi" ReturnType="Collection(SiteDBModel.S_KisilerListesi_Result)" />
         </EntityContainer>
         <ComplexType Name="S_Kisiler_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -181,6 +183,16 @@
           <Property Type="Int32" Name="VadeTarihi" Nullable="true" />
           <Property Type="Int32" Name="GuncellemeTarihi" Nullable="true" />
           <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="S_KisilerListesi_Result">
+          <Property Type="String" Name="AdiSoyadi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BlokAdi" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="DaireNo" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="DaireGirisTarihi" Nullable="true" />
+          <Property Type="DateTime" Name="DaireCikisTarihi" Nullable="true" />
+          <Property Type="String" Name="MulkDurumu" Nullable="false" MaxLength="9" />
+          <Property Type="String" Name="YasamDurumu" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="Notlar" Nullable="true" MaxLength="500" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -274,6 +286,20 @@
           <FunctionImportMapping FunctionImportName="UDI_BlokTanimlari" FunctionName="SiteDBModel.Store.UDI_BlokTanimlari" />
           <FunctionImportMapping FunctionImportName="UDI_DaireTanimlari" FunctionName="SiteDBModel.Store.UDI_DaireTanimlari" />
           <FunctionImportMapping FunctionImportName="UDI_OdemeTipiTanimlari" FunctionName="SiteDBModel.Store.UDI_OdemeTipiTanimlari" />
+          <FunctionImportMapping FunctionImportName="S_KisilerListesi" FunctionName="SiteDBModel.Store.S_KisilerListesi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SiteDBModel.S_KisilerListesi_Result">
+                <ScalarProperty Name="AdiSoyadi" ColumnName="AdiSoyadi" />
+                <ScalarProperty Name="BlokAdi" ColumnName="BlokAdi" />
+                <ScalarProperty Name="DaireNo" ColumnName="DaireNo" />
+                <ScalarProperty Name="DaireGirisTarihi" ColumnName="DaireGirisTarihi" />
+                <ScalarProperty Name="DaireCikisTarihi" ColumnName="DaireCikisTarihi" />
+                <ScalarProperty Name="MulkDurumu" ColumnName="MulkDurumu" />
+                <ScalarProperty Name="YasamDurumu" ColumnName="YasamDurumu" />
+                <ScalarProperty Name="Notlar" ColumnName="Notlar" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
