@@ -184,12 +184,26 @@ namespace OzayTepeSiteYonetimi
 
         private void navBarDaireTan_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            int rowhandle = gridView1.FocusedRowHandle;
+            DaireTanimlari frm = new DaireTanimlari();
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
 
+            }
+            gridView1.FocusedRowHandle = rowhandle;
         }
 
         private void navBarOdemeTipiTan_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            int rowhandle = gridView1.FocusedRowHandle;
+            OdemeTipiTanimlari frm = new OdemeTipiTanimlari();
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
 
+            }
+            gridView1.FocusedRowHandle = rowhandle;
         }
 
         private void navBarKisilerListesi_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)

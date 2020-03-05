@@ -56,8 +56,7 @@ namespace OzayTepeSiteYonetimi
                     return;
 
                 //int product_id_grid = Convert.ToInt32(view.GetDataRow(view.FocusedRowHandle)["ID"].ToString());
-
-                string blokadi = gridView1.GetFocusedRowCellValue("BlokAdi").ToString();
+                
                 int kayitid = (gridView1.GetFocusedRowCellValue("ID") == DBNull.Value) ? -1 : (int)gridView1.GetFocusedRowCellValue("ID");
                 db.UDI_BlokTanimlari(1, kayitid, gridView1.GetFocusedRowCellValue("BlokAdi").ToString());
 
@@ -108,7 +107,8 @@ namespace OzayTepeSiteYonetimi
 
         private void BlokTanimlari_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

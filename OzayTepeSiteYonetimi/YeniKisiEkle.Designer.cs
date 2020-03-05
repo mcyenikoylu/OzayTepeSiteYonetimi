@@ -118,6 +118,7 @@
             // btnKaydet
             // 
             this.btnKaydet.Caption = "Kaydet";
+            this.btnKaydet.CausesValidation = true;
             this.btnKaydet.Id = 1;
             this.btnKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.ImageOptions.Image")));
             this.btnKaydet.Name = "btnKaydet";
@@ -127,6 +128,7 @@
             // btnKaydetKapat
             // 
             this.btnKaydetKapat.Caption = "Kaydet ve Kapat";
+            this.btnKaydetKapat.CausesValidation = true;
             this.btnKaydetKapat.Id = 2;
             this.btnKaydetKapat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydetKapat.ImageOptions.Image")));
             this.btnKaydetKapat.Name = "btnKaydetKapat";
@@ -136,6 +138,7 @@
             // btnKaydetYeni
             // 
             this.btnKaydetYeni.Caption = "Kaydet ve Yeni";
+            this.btnKaydetYeni.CausesValidation = true;
             this.btnKaydetYeni.Id = 3;
             this.btnKaydetYeni.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydetYeni.ImageOptions.Image")));
             this.btnKaydetYeni.Name = "btnKaydetYeni";
@@ -322,6 +325,7 @@
             this.cmbDaireNo.Properties.NullText = "";
             this.cmbDaireNo.Properties.PopupSizeable = false;
             this.cmbDaireNo.Properties.ValueMember = "ID";
+            this.cmbDaireNo.Properties.Validating += new System.ComponentModel.CancelEventHandler(this.cmbDaireNo_Properties_Validating);
             this.cmbDaireNo.Size = new System.Drawing.Size(264, 20);
             this.cmbDaireNo.TabIndex = 27;
             // 
@@ -343,6 +347,7 @@
             this.cmbBlokAdi.Properties.NullText = "";
             this.cmbBlokAdi.Properties.PopupSizeable = false;
             this.cmbBlokAdi.Properties.ValueMember = "ID";
+            this.cmbBlokAdi.Properties.Validating += new System.ComponentModel.CancelEventHandler(this.cmbBlokAdi_Properties_Validating);
             this.cmbBlokAdi.Size = new System.Drawing.Size(264, 20);
             this.cmbBlokAdi.TabIndex = 25;
             // 
@@ -357,6 +362,7 @@
             this.txtAdSoyad.Properties.MaxLength = 50;
             this.txtAdSoyad.Size = new System.Drawing.Size(264, 20);
             this.txtAdSoyad.TabIndex = 23;
+            this.txtAdSoyad.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdSoyad_Validating);
             // 
             // labelControl2
             // 
@@ -405,6 +411,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtGirisTarihi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtGirisTarihi.Properties.Validating += new System.ComponentModel.CancelEventHandler(this.dtGirisTarihi_Properties_Validating);
             this.dtGirisTarihi.Size = new System.Drawing.Size(264, 20);
             this.dtGirisTarihi.TabIndex = 29;
             // 

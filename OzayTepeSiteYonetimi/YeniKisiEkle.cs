@@ -23,13 +23,13 @@ namespace OzayTepeSiteYonetimi
         private void YeniKisiEkle_Load(object sender, EventArgs e)
         {
             SiteDBEntities2 db = new SiteDBEntities2();
-            var bloklar = db.S_Bloklar().ToList();
+            var bloklar = db.S_Bloklar().Where(c => c.IsDeleted == false).ToList();
             cmbBlokAdi.Properties.DataSource = bloklar;
-            var daireler = db.S_Daireler().ToList();
+            var daireler = db.S_Daireler().Where(c => c.IsDeleted == false).ToList();
             cmbDaireNo.Properties.DataSource = daireler;
             if (kisiid>0)
             {
-                var list = db.S_Kisiler(kisiid).ToList();
+                var list = db.S_Kisiler(kisiid).Where(c => c.IsDeleted == false).ToList();
                 listkisiler = list;
                 txtAdSoyad.EditValue = list.FirstOrDefault().AdiSoyadi;
                 cmbBlokAdi.EditValue = list.FirstOrDefault().BlokAdiID;
@@ -123,29 +123,31 @@ namespace OzayTepeSiteYonetimi
         {
             try
             {
-                SiteDBEntities2 db = new SiteDBEntities2();
-                db.UDI_Kisi(1, kisiid,
-                    txtAdSoyad.EditValue.ToString(),
-                    (int)cmbBlokAdi.EditValue,
-                    (int)cmbDaireNo.EditValue,
-                    rbKiraci.Checked,
-                    DateTime.Now.Date,
-                    (DateTime)dtGirisTarihi.EditValue,
-                    ((dtCikisTarihi.EditValue == null) ? (DateTime)System.Data.SqlTypes.SqlDateTime.Null : (DateTime)dtCikisTarihi.EditValue),
-                    rbOturuyor.Checked,
-                    ((txtNotlar.EditValue == null) ? "" : txtNotlar.EditValue.ToString()));
-                Mesaj.MesajVer("Kayıt eklenmiştir.", Mesaj.MesajTipi.Onay, this);
-                txtAdSoyad.EditValue = "";
-                cmbBlokAdi.ResetText();
-                cmbDaireNo.ResetText();
-                rbKiraci.Checked = false;
-                rbEvSahibi.Checked = false;
-                dtGirisTarihi.ResetText();
-                dtCikisTarihi.ResetText();
-                rbOturuyor.Checked = false;
-                rbAyrildi.Checked = false;
-                txtNotlar.EditValue = "";
-                txtAdSoyad.Focus();
+                
+                    SiteDBEntities2 db = new SiteDBEntities2();
+                    db.UDI_Kisi(1, kisiid,
+                        txtAdSoyad.EditValue.ToString(),
+                        (int)cmbBlokAdi.EditValue,
+                        (int)cmbDaireNo.EditValue,
+                        rbKiraci.Checked,
+                        DateTime.Now.Date,
+                        (DateTime)dtGirisTarihi.EditValue,
+                        ((dtCikisTarihi.EditValue == null) ? (DateTime)System.Data.SqlTypes.SqlDateTime.Null : (DateTime)dtCikisTarihi.EditValue),
+                        rbOturuyor.Checked,
+                        ((txtNotlar.EditValue == null) ? "" : txtNotlar.EditValue.ToString()));
+                    Mesaj.MesajVer("Kayıt eklenmiştir.", Mesaj.MesajTipi.Onay, this);
+                    txtAdSoyad.EditValue = "";
+                    cmbBlokAdi.ResetText();
+                    cmbDaireNo.ResetText();
+                    rbKiraci.Checked = false;
+                    rbEvSahibi.Checked = false;
+                    dtGirisTarihi.ResetText();
+                    dtCikisTarihi.ResetText();
+                    rbOturuyor.Checked = false;
+                    rbAyrildi.Checked = false;
+                    txtNotlar.EditValue = "";
+                    txtAdSoyad.Focus();
+                
             }
             catch (Exception hata)
             {
@@ -155,49 +157,60 @@ namespace OzayTepeSiteYonetimi
 
         private void btnGerial_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            txtAdSoyad.Undo();
-            txtNotlar.Undo();
-            txtAdSoyad.EditValue = listkisiler.FirstOrDefault().AdiSoyadi;
-            cmbBlokAdi.EditValue = listkisiler.FirstOrDefault().BlokAdiID;
-            cmbDaireNo.EditValue = listkisiler.FirstOrDefault().DaireAdiID;
-            dtGirisTarihi.EditValue = listkisiler.FirstOrDefault().DaireGirisTarihi;
-            dtCikisTarihi.EditValue = listkisiler.FirstOrDefault().DaireCikisTarihi;
-            bool kiraciEvSahibi = (bool)listkisiler.FirstOrDefault().KiraciEvsahibi;
-            if (kiraciEvSahibi)
+            if (kisiid > 0)
             {
-                rbKiraci.Checked = true;
-                rbEvSahibi.Checked = false;
+                txtAdSoyad.Undo();
+                txtNotlar.Undo();
+                txtAdSoyad.EditValue = listkisiler.FirstOrDefault().AdiSoyadi;
+                cmbBlokAdi.EditValue = listkisiler.FirstOrDefault().BlokAdiID;
+                cmbDaireNo.EditValue = listkisiler.FirstOrDefault().DaireAdiID;
+                dtGirisTarihi.EditValue = listkisiler.FirstOrDefault().DaireGirisTarihi;
+                dtCikisTarihi.EditValue = listkisiler.FirstOrDefault().DaireCikisTarihi;
+                bool kiraciEvSahibi = (bool)listkisiler.FirstOrDefault().KiraciEvsahibi;
+                if (kiraciEvSahibi)
+                {
+                    rbKiraci.Checked = true;
+                    rbEvSahibi.Checked = false;
+                }
+                else
+                {
+                    rbKiraci.Checked = false;
+                    rbEvSahibi.Checked = true;
+                }
+                bool oturuyorAyrildi = (bool)listkisiler.FirstOrDefault().OturuyorAyrildi;
+                if (oturuyorAyrildi)
+                {
+                    rbOturuyor.Checked = true;
+                    rbAyrildi.Checked = false;
+                }
+                else
+                {
+                    rbOturuyor.Checked = false;
+                    rbAyrildi.Checked = true;
+                }
+                txtNotlar.EditValue = listkisiler.FirstOrDefault().Notlar;
             }
             else
             {
-                rbKiraci.Checked = false;
-                rbEvSahibi.Checked = true;
+                txtAdSoyad.Undo();
+                txtNotlar.Undo();
             }
-            bool oturuyorAyrildi = (bool)listkisiler.FirstOrDefault().OturuyorAyrildi;
-            if (oturuyorAyrildi)
-            {
-                rbOturuyor.Checked = true;
-                rbAyrildi.Checked = false;
-            }
-            else
-            {
-                rbOturuyor.Checked = false;
-                rbAyrildi.Checked = true;
-            }
-            txtNotlar.EditValue = listkisiler.FirstOrDefault().Notlar;
         }
 
         private void btnSil_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
-                if (XtraMessageBox.Show("Kayıdı silmek istediğinizden eminmisiniz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                if (kisiid > 0)
                 {
-                    SiteDBEntities2 db = new SiteDBEntities2();
-                    db.UDI_Kisi(2, kisiid, "", -1, -1, false, null, null, null, false, "");
-                    Mesaj.MesajVer("Kayıt silinmiştir.", Mesaj.MesajTipi.Onay, this);
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    if (XtraMessageBox.Show("Kayıdı silmek istediğinizden eminmisiniz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        SiteDBEntities2 db = new SiteDBEntities2();
+                        db.UDI_Kisi(2, kisiid, "", -1, -1, false, null, null, null, false, "");
+                        Mesaj.MesajVer("Kayıt silinmiştir.", Mesaj.MesajTipi.Onay, this);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
                 }
             }
             catch (Exception hata)
@@ -209,13 +222,39 @@ namespace OzayTepeSiteYonetimi
 
         private void btnOdemeEkle_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            OdemeEkle frm = new OdemeEkle(kisiid,txtAdSoyad.EditValue.ToString(),-1);
-            frm.ShowDialog();
+            try
+            {
+                if(kisiid > 0)
+                {
+                    OdemeEkle frm = new OdemeEkle(kisiid, txtAdSoyad.EditValue.ToString(), -1);
+                    frm.ShowDialog();
+                }
+                
+            }
+            catch (Exception hata)
+            {
+
+                throw;
+            }
+            
         }
 
         private void btnBorclandir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            try
+            {
+                if (kisiid > 0)
+                {
+                    Borclandir frm = new Borclandir(kisiid, txtAdSoyad.EditValue.ToString());
+                    frm.ShowDialog();
+                }
 
+            }
+            catch (Exception hata)
+            {
+
+                throw;
+            }
         }
 
         private void dtCikisTarihi_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -224,6 +263,34 @@ namespace OzayTepeSiteYonetimi
             {
                 dtCikisTarihi.EditValue = null;
             }
+        }
+
+        private void txtAdSoyad_Validating(object sender, CancelEventArgs e)
+        {
+            //if(txtAdSoyad.EditValue == null || txtAdSoyad.Text == "")
+            //{
+
+            //}
+            if ((sender as TextEdit).Text == "" || (sender as TextEdit).Text == null)
+                e.Cancel = true;
+        }
+
+        private void cmbBlokAdi_Properties_Validating(object sender, CancelEventArgs e)
+        {
+            if ((sender as LookUpEdit).EditValue == null)
+                e.Cancel = true;
+        }
+
+        private void cmbDaireNo_Properties_Validating(object sender, CancelEventArgs e)
+        {
+            if ((sender as LookUpEdit).EditValue == null)
+                e.Cancel = true;
+        }
+
+        private void dtGirisTarihi_Properties_Validating(object sender, CancelEventArgs e)
+        {
+            if ((sender as DateEdit).EditValue == null)
+                e.Cancel = true;
         }
     }
 }

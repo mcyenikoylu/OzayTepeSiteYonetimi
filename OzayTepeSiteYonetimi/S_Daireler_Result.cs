@@ -15,5 +15,6 @@ namespace OzayTepeSiteYonetimi
     {
         public int ID { get; set; }
         public string DaireNo { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     }
 }

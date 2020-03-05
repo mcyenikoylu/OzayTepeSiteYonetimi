@@ -1,6 +1,6 @@
 ﻿namespace OzayTepeSiteYonetimi
 {
-    partial class BlokTanimlari
+    partial class DaireTanimlari
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BlokTanimlari));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DaireTanimlari));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.btnSil = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -39,11 +37,10 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBlokAdi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.sBloklarResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnSil = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sBloklarResultBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -58,19 +55,11 @@
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbon.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
+            this.ribbon.ShowToolbarCustomizeItem = false;
             this.ribbon.Size = new System.Drawing.Size(442, 122);
             this.ribbon.StatusBar = this.ribbonStatusBar;
-            // 
-            // btnSil
-            // 
-            this.btnSil.Caption = "Seçili Satırı Sil";
-            this.btnSil.Id = 1;
-            this.btnSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSil.ImageOptions.Image")));
-            this.btnSil.Name = "btnSil";
-            this.btnSil.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnSil.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSil_ItemClick);
+            this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // ribbonPage1
             // 
@@ -100,7 +89,7 @@
             this.gridControl1.MenuManager = this.ribbon;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(442, 296);
-            this.gridControl1.TabIndex = 2;
+            this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -127,16 +116,22 @@
             // 
             // colBlokAdi
             // 
-            this.colBlokAdi.FieldName = "BlokAdi";
+            this.colBlokAdi.Caption = "Daire Numarası";
+            this.colBlokAdi.FieldName = "DaireNo";
             this.colBlokAdi.Name = "colBlokAdi";
             this.colBlokAdi.Visible = true;
             this.colBlokAdi.VisibleIndex = 1;
             // 
-            // sBloklarResultBindingSource
+            // btnSil
             // 
-            this.sBloklarResultBindingSource.DataSource = typeof(OzayTepeSiteYonetimi.S_Bloklar_Result);
+            this.btnSil.Caption = "Seçili Kaydı Sil";
+            this.btnSil.Id = 1;
+            this.btnSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSil.ImageOptions.Image")));
+            this.btnSil.Name = "btnSil";
+            this.btnSil.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnSil.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSil_ItemClick);
             // 
-            // BlokTanimlari
+            // DaireTanimlari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -147,18 +142,17 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "BlokTanimlari";
+            this.Name = "DaireTanimlari";
             this.Ribbon = this.ribbon;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "Blok Tanımları";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BlokTanimlari_FormClosing);
-            this.Load += new System.EventHandler(this.BlokTanimlari_Load);
+            this.Text = "Daire Tanımları";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DaireTanimlari_FormClosing);
+            this.Load += new System.EventHandler(this.DaireTanimlari_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sBloklarResultBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,9 +166,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraBars.BarButtonItem btnSil;
-        private System.Windows.Forms.BindingSource sBloklarResultBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colBlokAdi;
+        private DevExpress.XtraBars.BarButtonItem btnSil;
     }
 }
