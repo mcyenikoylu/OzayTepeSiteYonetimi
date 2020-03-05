@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{6C
 		UDI_DaireTanimlari.sql = UDI_DaireTanimlari.sql
 		UDI_Kisi.sql = UDI_Kisi.sql
 		UDI_OdemeEkle.sql = UDI_OdemeEkle.sql
+		UDI_OdemeTipiTanimlari.sql = UDI_OdemeTipiTanimlari.sql
 	EndProjectSection
 EndProject
 Global

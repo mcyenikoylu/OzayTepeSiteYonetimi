@@ -57,6 +57,11 @@
           <Parameter Name="Tutar" Type="decimal" Mode="In" />
           <Parameter Name="Aciklama" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="UDI_OdemeTipiTanimlari" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IslemTipi" Type="int" Mode="In" />
+          <Parameter Name="KayitID" Type="int" Mode="In" />
+          <Parameter Name="TipAdi" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="SiteDBModelStoreContainer" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -115,6 +120,11 @@
             <Parameter Name="KayitID" Mode="In" Type="Int32" />
             <Parameter Name="DaireNo" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="UDI_OdemeTipiTanimlari">
+            <Parameter Name="IslemTipi" Mode="In" Type="Int32" />
+            <Parameter Name="KayitID" Mode="In" Type="Int32" />
+            <Parameter Name="TipAdi" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="S_Kisiler_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -142,6 +152,7 @@
         <ComplexType Name="S_OdemeTipi_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="OdemeAdi" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
         </ComplexType>
         <ComplexType Name="S_Odemeler_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -235,6 +246,7 @@
               <ComplexTypeMapping TypeName="SiteDBModel.S_OdemeTipi_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OdemeAdi" ColumnName="OdemeAdi" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -261,6 +273,7 @@
           <FunctionImportMapping FunctionImportName="UDI_Borclandir" FunctionName="SiteDBModel.Store.UDI_Borclandir" />
           <FunctionImportMapping FunctionImportName="UDI_BlokTanimlari" FunctionName="SiteDBModel.Store.UDI_BlokTanimlari" />
           <FunctionImportMapping FunctionImportName="UDI_DaireTanimlari" FunctionName="SiteDBModel.Store.UDI_DaireTanimlari" />
+          <FunctionImportMapping FunctionImportName="UDI_OdemeTipiTanimlari" FunctionName="SiteDBModel.Store.UDI_OdemeTipiTanimlari" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

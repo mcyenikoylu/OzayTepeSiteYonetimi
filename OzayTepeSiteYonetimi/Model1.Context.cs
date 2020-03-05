@@ -218,5 +218,22 @@ namespace OzayTepeSiteYonetimi
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDI_DaireTanimlari", islemTipiParameter, kayitIDParameter, daireNoParameter);
         }
+    
+        public virtual int UDI_OdemeTipiTanimlari(Nullable<int> islemTipi, Nullable<int> kayitID, string tipAdi)
+        {
+            var islemTipiParameter = islemTipi.HasValue ?
+                new ObjectParameter("IslemTipi", islemTipi) :
+                new ObjectParameter("IslemTipi", typeof(int));
+    
+            var kayitIDParameter = kayitID.HasValue ?
+                new ObjectParameter("KayitID", kayitID) :
+                new ObjectParameter("KayitID", typeof(int));
+    
+            var tipAdiParameter = tipAdi != null ?
+                new ObjectParameter("TipAdi", tipAdi) :
+                new ObjectParameter("TipAdi", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UDI_OdemeTipiTanimlari", islemTipiParameter, kayitIDParameter, tipAdiParameter);
+        }
     }
 }
