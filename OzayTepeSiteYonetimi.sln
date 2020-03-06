@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzayTepeSiteYonetimi", "Oza
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{6C8406FD-D372-4DB1-9385-FC0BA64A849D}"
 	ProjectSection(SolutionItems) = preProject
+		GenerateScript.sql = GenerateScript.sql
 		S_Bloklar.sql = S_Bloklar.sql
 		S_CariIslemler.sql = S_CariIslemler.sql
 		S_Daireler.sql = S_Daireler.sql

@@ -33,9 +33,10 @@
             this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -66,9 +67,19 @@
             this.labelControl2.TabIndex = 7;
             this.labelControl2.Text = "Program Başlatılıyor...";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 10000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // pictureEdit2
             // 
-            this.pictureEdit2.EditValue = ((object)(resources.GetObject("pictureEdit2.EditValue")));
+            this.pictureEdit2.EditValue = global::OzayTepeSiteYonetimi.Properties.Resources.splashscreen;
             this.pictureEdit2.Location = new System.Drawing.Point(12, 12);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.AllowFocused = false;
@@ -81,7 +92,7 @@
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
+            this.pictureEdit1.EditValue = global::OzayTepeSiteYonetimi.Properties.Resources.siteyonetimlogo;
             this.pictureEdit1.Location = new System.Drawing.Point(278, 266);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;
@@ -91,12 +102,6 @@
             this.pictureEdit1.Properties.ShowMenu = false;
             this.pictureEdit1.Size = new System.Drawing.Size(160, 48);
             this.pictureEdit1.TabIndex = 8;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 10000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // SplashScreen1
             // 
@@ -129,5 +134,6 @@
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }

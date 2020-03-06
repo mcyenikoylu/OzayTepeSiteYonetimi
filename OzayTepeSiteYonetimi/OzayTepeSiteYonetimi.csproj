@@ -277,6 +277,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\splashscreen.png" />
+    <None Include="Resources\siteyonetimlogo.png" />
     <None Include="Resources\Info_32x32.png" />
     <None Include="Resources\Info_16x16.png" />
   </ItemGroup>

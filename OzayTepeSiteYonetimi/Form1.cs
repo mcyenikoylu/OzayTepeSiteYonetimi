@@ -75,6 +75,7 @@ namespace OzayTepeSiteYonetimi
             SiteDBEntities2 db = new SiteDBEntities2();
             var cari = db.S_CariIslemler().ToList();
             pivotGridControl1.DataSource = cari;
+            //pivotGridControl1.ActiveFilter.
         }
 
         private void navBarYeniKisiEkle_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -329,14 +330,47 @@ namespace OzayTepeSiteYonetimi
         {
 
             //string name = e.RowField.ToString();
-            //string name2 = e.Value.ToString();
+            ////string name2 = e.Value.ToString();
             //string name3 = e.RowFieldIndex.ToString();
             //string name4 = e.RowIndex.ToString();
             //string name5 = e.ColumnField.ToString();
             //string name6 = e.ColumnFieldIndex.ToString();
             //string name7 = e.ColumnIndex.ToString();
+            //if(e.RowField.ToString() == "Daire No")
+            //{
+            //    string name8 = e.GetFieldValue(e.RowField, e.RowIndex).ToString();
+            //}
+            //else if (e.RowField.ToString() == "Blok Adi")
+            //{
 
+            //}
+            //else
+            //{
 
+            //}
+
+            //if(e.ColumnField.ToString() == "Ay")
+            //{
+
+            //}
+            //else if (e.ColumnField.ToString() == "Yil")
+            //{
+
+            //}
+            //else
+            //{
+
+            //}
+            //if(e.Value != null)
+            //{
+            //    if (e.Value.ToString() == "80.00")
+            //    {
+            //        string name8 = e.GetFieldValue(e.RowField, e.ColumnFieldIndex).ToString();
+            //        string nema9 = e.GetCellValue(e.ColumnIndex, e.RowIndex).ToString();
+            //        e.get
+            //    }
+            //}
+            
             //GridView view = sender as GridView;
             //if (view.IsRowVisible(e.RowIndex) == RowVisibleState.Visible)
             //{
@@ -355,8 +389,13 @@ namespace OzayTepeSiteYonetimi
 
         private void navBarAylikAidat_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            pivotGridControl1.OptionsPrint.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.A4;
+            pivotGridControl1.OptionsPrint.PageSettings.Margins.Bottom = 12;
+            pivotGridControl1.OptionsPrint.PageSettings.Margins.Top = 12;
+            pivotGridControl1.OptionsPrint.PageSettings.Margins.Left = 12;
+            pivotGridControl1.OptionsPrint.PageSettings.Margins.Right = 12;
+            pivotGridControl1.OptionsPrint.PageSettings.Landscape = true;
             pivotGridControl1.ShowPrintPreview();
-            //pivotGridControl1.Print();
         }
 
         

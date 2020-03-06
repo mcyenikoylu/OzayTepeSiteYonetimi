@@ -925,6 +925,7 @@
             pivotGridGroup1});
             this.pivotGridControl1.Location = new System.Drawing.Point(0, 0);
             this.pivotGridControl1.Name = "pivotGridControl1";
+            this.pivotGridControl1.OptionsPrint.PrintFilterHeaders = DevExpress.Utils.DefaultBoolean.False;
             this.pivotGridControl1.Size = new System.Drawing.Size(625, 453);
             this.pivotGridControl1.TabIndex = 0;
             this.pivotGridControl1.FieldValueDisplayText += new DevExpress.XtraPivotGrid.PivotFieldDisplayTextEventHandler(this.pivotGridControl1_FieldValueDisplayText);
