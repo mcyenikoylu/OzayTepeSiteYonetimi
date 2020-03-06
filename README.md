@@ -66,7 +66,7 @@ Windows OS
 
 ## Built With
 
-* [Framework](https://support.microsoft.com/tr-tr/help/3102436/the-net-framework-4-6-1-offline-installer-for-windows) - .Net Framework
+* [Framework](https://support.microsoft.com/tr-tr/help/3102436/the-net-framework-4-6-1-offline-installer-for-windows) - .Net Framework 4.6.1
 * [Component](https://www.devexpress.com/) - DevExpress 18.2.4
 * [Database](https://www.microsoft.com/en-us/download/details.aspx?id=42299) - Microsoft SQL 2014
 
@@ -76,9 +76,7 @@ v1
 
 ## Authors
 
-* **Mehmet Cenk Yeniköylü** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Mehmet Cenk Yeniköylü** - 
 
 ## License
 
