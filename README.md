@@ -36,13 +36,31 @@ Explain how to run the automated tests for this system
 
 ### Kişiler
 
-Explain what these tests test and why
+Tüm kişilerin listelendiği ekran. Grid üzerindeki filtre özelliği ile veriyi kendinize göre anlamlandırabiliyorsunuz.
 
 ![siteyonetimbg](https://user-images.githubusercontent.com/12815851/76127715-72822b80-6013-11ea-9c86-665dd408d834.JPG)
 
 ```
 Give an example
 ```
+### Kişi Kartı
+
+Kişi bilgilerinin girildiği ve düzenlendiği ekran. Üst menüden hızlı bir şekilde diğer veri giriş ekranlarına geçilebiliyor.
+
+![siteyonetimkisi](https://user-images.githubusercontent.com/12815851/76127820-c9880080-6013-11ea-831b-bdac3e03d056.JPG)
+
+### Borçlandırma
+
+Vade tarihi belirleyip, ödemelerin belirleneceği ay adedini de seçerek borçlandırma oluşturuyorsunuz.
+
+![siteyonetimborclandir](https://user-images.githubusercontent.com/12815851/76128030-487d3900-6014-11ea-9f42-4431533a553f.JPG)
+
+### Blok Adı, Daire No ve Ödeme Tipi Tanımları
+
+Programın işleyişi için önceden yapılması gerekli tanımlamaları yapıyorsunuz. Ekran tasarımları aynı.
+
+![siteyonetimblok](https://user-images.githubusercontent.com/12815851/76128142-8f6b2e80-6014-11ea-8f55-1a154d94c372.JPG)
+
 
 ### And coding style tests
 
