@@ -277,6 +277,21 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="SQLQuery\GenerateScript.sql" />
+    <Content Include="SQLQuery\S_Bloklar.sql" />
+    <Content Include="SQLQuery\S_CariIslemler.sql" />
+    <Content Include="SQLQuery\S_Daireler.sql" />
+    <Content Include="SQLQuery\S_Kisiler.sql" />
+    <Content Include="SQLQuery\S_KisilerListesi.sql" />
+    <Content Include="SQLQuery\S_Odemeler.sql" />
+    <Content Include="SQLQuery\S_OdemelerSablon.sql" />
+    <Content Include="SQLQuery\S_OdemeTipi.sql" />
+    <Content Include="SQLQuery\UDI_BlokTanimlari.sql" />
+    <Content Include="SQLQuery\UDI_Borclandir.sql" />
+    <Content Include="SQLQuery\UDI_DaireTanimlari.sql" />
+    <Content Include="SQLQuery\UDI_Kisi.sql" />
+    <Content Include="SQLQuery\UDI_OdemeEkle.sql" />
+    <Content Include="SQLQuery\UDI_OdemeTipiTanimlari.sql" />
     <None Include="Resources\splashscreen.png" />
     <None Include="Resources\siteyonetimlogo.png" />
     <None Include="Resources\Info_32x32.png" />

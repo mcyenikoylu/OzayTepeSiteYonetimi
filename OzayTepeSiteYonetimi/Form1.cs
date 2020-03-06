@@ -398,6 +398,24 @@ namespace OzayTepeSiteYonetimi
             pivotGridControl1.ShowPrintPreview();
         }
 
-        
+        private void btnProgramiKapat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+          
+            try
+            {
+               
+                if (XtraMessageBox.Show("Programı kapatmak istediğinizden eminmisiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                {
+                   
+                    Application.Exit();
+                }
+             
+            }
+            catch (Exception Hata)
+            {
+                //Genel.LogErrorYaz(iFormID, Hata);
+                //XtraMessageBox.Show(Genel.DilGetirMesaj(1034) + "\n\n" + Hata.Message, Genel.DilGetirMesaj(2), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

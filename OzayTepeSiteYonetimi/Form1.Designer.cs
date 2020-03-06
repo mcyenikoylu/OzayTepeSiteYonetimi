@@ -43,8 +43,7 @@
             this.barSubItemNavigation = new DevExpress.XtraBars.BarSubItem();
             this.employeesBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.customersBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnProgramiKapat = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -193,8 +192,7 @@
             this.barSubItemNavigation,
             this.employeesBarButtonItem,
             this.customersBarButtonItem,
-            this.barButtonItem1,
-            this.barButtonItem2,
+            this.btnProgramiKapat,
             this.barButtonItem3,
             this.barStaticItem2});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
@@ -238,21 +236,14 @@
             this.customersBarButtonItem.Name = "customersBarButtonItem";
             this.customersBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
             // 
-            // barButtonItem1
+            // btnProgramiKapat
             // 
-            this.barButtonItem1.Caption = "Programı Kapat";
-            this.barButtonItem1.Id = 46;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Ayarlar";
-            this.barButtonItem2.Id = 47;
-            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnProgramiKapat.Caption = "Programı Kapat";
+            this.btnProgramiKapat.Id = 46;
+            this.btnProgramiKapat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnProgramiKapat.Name = "btnProgramiKapat";
+            this.btnProgramiKapat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnProgramiKapat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProgramiKapat_ItemClick);
             // 
             // barButtonItem3
             // 
@@ -292,8 +283,7 @@
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnProgramiKapat);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Menu";
             // 
@@ -1194,9 +1184,8 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.LabelControl lblAdSoyad;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnProgramiKapat;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraEditors.LabelControl lblBlok;
         private DevExpress.XtraNavBar.NavBarItem navBarYeniKisiEkle;
         private DevExpress.XtraNavBar.NavBarItem navBarGridAyarKaydet;

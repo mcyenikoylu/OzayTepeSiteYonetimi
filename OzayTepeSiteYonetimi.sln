@@ -5,24 +5,7 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzayTepeSiteYonetimi", "OzayTepeSiteYonetimi\OzayTepeSiteYonetimi.csproj", "{EFA119E1-4BF5-4A2F-8B51-C282BA02C29B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{6C8406FD-D372-4DB1-9385-FC0BA64A849D}"
-	ProjectSection(SolutionItems) = preProject
-		GenerateScript.sql = GenerateScript.sql
-		S_Bloklar.sql = S_Bloklar.sql
-		S_CariIslemler.sql = S_CariIslemler.sql
-		S_Daireler.sql = S_Daireler.sql
-		S_Kisiler.sql = S_Kisiler.sql
-		S_KisilerListesi.sql = S_KisilerListesi.sql
-		S_Odemeler.sql = S_Odemeler.sql
-		S_OdemelerSablon.sql = S_OdemelerSablon.sql
-		S_OdemeTipi.sql = S_OdemeTipi.sql
-		UDI_BlokTanimlari.sql = UDI_BlokTanimlari.sql
-		UDI_Borclandir.sql = UDI_Borclandir.sql
-		UDI_DaireTanimlari.sql = UDI_DaireTanimlari.sql
-		UDI_Kisi.sql = UDI_Kisi.sql
-		UDI_OdemeEkle.sql = UDI_OdemeEkle.sql
-		UDI_OdemeTipiTanimlari.sql = UDI_OdemeTipiTanimlari.sql
-	EndProjectSection
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{D2BA54D4-B60E-4414-BBAC-FCA4E8C975FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +17,8 @@ Global
 		{EFA119E1-4BF5-4A2F-8B51-C282BA02C29B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFA119E1-4BF5-4A2F-8B51-C282BA02C29B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFA119E1-4BF5-4A2F-8B51-C282BA02C29B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2BA54D4-B60E-4414-BBAC-FCA4E8C975FA}.Debug|Any CPU.ActiveCfg = Debug
+		{D2BA54D4-B60E-4414-BBAC-FCA4E8C975FA}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
