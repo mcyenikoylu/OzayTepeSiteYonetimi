@@ -62,9 +62,15 @@ Programın işleyişi için önceden yapılması gerekli tanımlamaları yapıyo
 ![siteyonetimblok](https://user-images.githubusercontent.com/12815851/76128142-8f6b2e80-6014-11ea-8f55-1a154d94c372.JPG)
 
 
-### And coding style tests
+### Cari İşlemleri
 
-Explain what these tests test and why
+Pivot grid olarak yerleştirilen veriler de filtrelendirme yapılabiliyor.
+
+![siteyonetimbg2](https://user-images.githubusercontent.com/12815851/76128298-fa1c6a00-6014-11ea-8767-d8c9d147b5d1.JPG)
+
+Print alabiliyorsunuz.
+
+![siteyonetimrapor](https://user-images.githubusercontent.com/12815851/76128370-364fca80-6015-11ea-8f0f-0e451815a85e.JPG)
 
 ```
 Give an example
@@ -90,7 +96,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Mehmet Cenk Yeniköylü** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
