@@ -4,11 +4,11 @@ Basit bir site, apartman yönetim programı.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Bloklar, daireler ve ödeme tipleri ile kişi kartları oluşturulan ve aylık vade tarihleri tanımlayıp borçlandırma yapılan kolay, basit ve kullanışlı bir program oldu. Ödeme tarihlerini tutarak raporlama da alabiliyoruz.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Veri tabanı olarak Microsoft SQL Server Express kullanıyor. Eğer bilgisayarınız da yüklü değilse [buradan](https://www.microsoft.com/en-us/download/details.aspx?id=42299) ücretsiz indirip kurabilirsiniz.
 
 ```
 Give examples
@@ -16,9 +16,7 @@ Give examples
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Microsoft SQL Veri tabanını bilgisiyarınıza kurduktan sonra proje içierisinde bulunan sql script kodunu çalıştırınız. Veri tabanını, tabloları ve procedureları oluşturacaktır. Örnek bir kaç kayıt da ekleyecektir. Daha sonra programı [buradan](https://github.com/mcyenikoylu/OzayTepeSiteYonetimi/blob/master/Setup/setup.exe) bilgisayarınıza indirip  yükleyebilirsiniz. 
 
 ```
 Give the example
