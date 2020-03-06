@@ -30,13 +30,15 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
+## Ekranlar
 
 Explain how to run the automated tests for this system
 
-### Break down into end to end tests
+### Kişiler
 
 Explain what these tests test and why
+
+![siteyonetimbg](https://user-images.githubusercontent.com/12815851/76127715-72822b80-6013-11ea-9c86-665dd408d834.JPG)
 
 ```
 Give an example
