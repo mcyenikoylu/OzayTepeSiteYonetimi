@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraPrintingLinks;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace OzayTepeSiteYonetimi
 {
@@ -169,7 +170,7 @@ namespace OzayTepeSiteYonetimi
             if (frm.DialogResult == DialogResult.OK)
             {
                 SiteDBEntities2 db = new SiteDBEntities2();
-                var odeme = db.S_Odemeler(kisiid).OrderByDescending(c => c.VadeTarihi).ThenByDescending(m => m.ID).ToList();
+                var odeme = db.S_Odemeler(kisiid).OrderByDescending(c => c.VadeTarihi).ThenByDescending(m => m.ID).Where(c => c.IsDeleted == false).ToList();
                 gridControl2.DataSource = odeme;
             }
             gridView1.FocusedRowHandle = rowhandle;
@@ -198,6 +199,7 @@ namespace OzayTepeSiteYonetimi
                     (gridView2.GetFocusedRowCellValue("Aciklama") == null) ? "" : gridView2.GetFocusedRowCellValue("Aciklama").ToString());
 
                 Mesaj.MesajVer("Kayıt güncellenmiştir.", Mesaj.MesajTipi.Onay, this);
+                CariGridGetir();
             }
             catch (Exception hata)
             {
@@ -282,6 +284,81 @@ namespace OzayTepeSiteYonetimi
                     e.DisplayText = "Satır Toplamı";
             }
         }
-      
+
+        private void gridView2_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            //GridView view = sender as GridView;
+            //if (view.IsRowVisible(e.RowHandle) == RowVisibleState.Visible)
+            //{
+            //    if (e.Column.FieldName == "Book1" && Int32.TryParse(view.GetRowCellDisplayText(e.RowHandle, view.Columns["Orders"]), out int Order1))
+            //    {
+            //        if (Order1 < 0) e.Appearance.BackColor = Color.Orange;
+            //    }
+            //    else if (e.Column.FieldName == "Book2" && Int32.TryParse(view.GetRowCellDisplayText(e.RowHandle, view.Columns["Orders"]), out int Order2))
+            //    {
+            //        if (Order2 > 0) e.Appearance.BackColor = Color.Orange;
+            //    }
+            //}
+        }
+
+        private void gridView2_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            object quantity = (gridView2.GetRowCellValue(e.RowHandle, "OdemeTarihi") == null) ? null : gridView2.GetRowCellValue(e.RowHandle, "OdemeTarihi");
+            
+            if(quantity == null)
+            {
+                if(Convert.ToDateTime(gridView2.GetRowCellValue(e.RowHandle, "VadeTarihi")) < DateTime.Now.Date)
+                    e.Appearance.BackColor = Color.LightPink; //vade tarihi geçmiş
+                else
+                    e.Appearance.BackColor = Color.LightYellow; //vade tarihi gelmemiş
+            }
+            else
+            {
+                e.Appearance.BackColor = Color.LightGreen; //ödenmiş
+            }
+        }
+
+        private void pivotGridControl1_CustomAppearance(object sender, DevExpress.XtraPivotGrid.PivotCustomAppearanceEventArgs e)
+        {
+            //if (Convert.ToString(e.GetFieldValue(yourField)) == "Analiz 1")
+            //    e.Appearance.BackColor = Color.Yellow;
+
+        }
+
+        private void pivotGridControl1_CustomDrawCell(object sender, DevExpress.XtraPivotGrid.PivotCustomDrawCellEventArgs e)
+        {
+
+            //string name = e.RowField.ToString();
+            //string name2 = e.Value.ToString();
+            //string name3 = e.RowFieldIndex.ToString();
+            //string name4 = e.RowIndex.ToString();
+            //string name5 = e.ColumnField.ToString();
+            //string name6 = e.ColumnFieldIndex.ToString();
+            //string name7 = e.ColumnIndex.ToString();
+
+
+            //GridView view = sender as GridView;
+            //if (view.IsRowVisible(e.RowIndex) == RowVisibleState.Visible)
+            //{
+            //    object quantity = (gridView2.GetRowCellValue(e.RowIndex, "OdemeTarihi") == null) ? null : gridView2.GetRowCellValue(e.RowIndex, "OdemeTarihi");
+
+            //    //if (e.RowField.Name == "Book1" && Int32.TryParse(view.GetRowCellDisplayText(e.RowIndex, view.Columns["Orders"]), out int Order1))
+            //    //{
+            //    //    if (Order1 < 0) e.Appearance.BackColor = Color.Orange;
+            //    //}
+            //    //else if (e.Column.FieldName == "Book2" && Int32.TryParse(view.GetRowCellDisplayText(e.RowIndex, view.Columns["Orders"]), out int Order2))
+            //    //{
+            //    //    if (Order2 > 0) e.Appearance.BackColor = Color.Orange;
+            //    //}
+            //}
+        }
+
+        private void navBarAylikAidat_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            pivotGridControl1.ShowPrintPreview();
+            //pivotGridControl1.Print();
+        }
+
+        
     }
 }

@@ -24,5 +24,7 @@ namespace OzayTepeSiteYonetimi
         public Nullable<bool> OturuyorAyrildi { get; set; }
         public string Notlar { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
+        public string MulkDurumu { get; set; }
+        public string YasamDurumu { get; set; }
     }
 }

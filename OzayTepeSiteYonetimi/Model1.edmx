@@ -142,6 +142,8 @@
           <Property Type="Boolean" Name="OturuyorAyrildi" Nullable="true" />
           <Property Type="String" Name="Notlar" Nullable="true" MaxLength="500" />
           <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="String" Name="MulkDurumu" Nullable="false" MaxLength="9" />
+          <Property Type="String" Name="YasamDurumu" Nullable="false" MaxLength="8" />
           </ComplexType>
         <ComplexType Name="S_Bloklar_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -240,6 +242,8 @@
                 <ScalarProperty Name="OturuyorAyrildi" ColumnName="OturuyorAyrildi" />
                 <ScalarProperty Name="Notlar" ColumnName="Notlar" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="MulkDurumu" ColumnName="MulkDurumu" />
+                <ScalarProperty Name="YasamDurumu" ColumnName="YasamDurumu" />
                 </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

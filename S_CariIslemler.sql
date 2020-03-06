@@ -1,14 +1,6 @@
-﻿-- ================================================
--- Template generated from Template Explorer using:
--- Create Procedure (New Menu).SQL
---
--- Use the Specify Values for Template Parameters 
--- command (Ctrl-Shift-M) to fill in the parameter 
--- values below.
---
--- This block of comments will not be included in
--- the definition of the procedure.
--- ================================================
+﻿USE [SiteDB]
+GO
+/****** Object:  StoredProcedure [dbo].[S_CariIslemler]    Script Date: 2020-03-06 4:41:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -18,7 +10,7 @@ GO
 -- Create date: 5.4.2020
 -- Description:	cari işlemler formu
 -- =============================================
-alter PROCEDURE S_CariIslemler 
+ALTER PROCEDURE [dbo].[S_CariIslemler] 
 	
 AS
 BEGIN
@@ -32,7 +24,7 @@ BEGIN
       ,O.[OdemeTarihi]
       ,O.[KayitTarihi]
       ,O.[Aciklama]
-      ,O.[Tutar]
+      ,(case when isnull(O.[OdemeTarihi],'1900-01-01') = '1900-01-01' then cast(0 as decimal) else O.[Tutar] end) as Tutar 
       ,O.[KisiID]
 	  ,K.AdiSoyadi
       ,O.[OdemeTipiID]
@@ -58,4 +50,3 @@ BEGIN
   order by K.ID
 
 END
-GO

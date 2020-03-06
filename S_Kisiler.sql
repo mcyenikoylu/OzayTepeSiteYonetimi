@@ -1,6 +1,6 @@
 ﻿USE [SiteDB]
 GO
-/****** Object:  StoredProcedure [dbo].[S_Kisiler]    Script Date: 2020-03-03 4:37:48 PM ******/
+/****** Object:  StoredProcedure [dbo].[S_Kisiler]    Script Date: 2020-03-06 12:39:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20,11 +20,17 @@ BEGIN
 
     if @ID > 0
 	begin
-		select * from Kisiler where ID = @ID
+		select *
+		,(case when [KiraciEvsahibi] = 0 then 'Kiracı' else 'Ev Sahibi' end) as MulkDurumu
+      ,(case when [OturuyorAyrildi] = 0 then 'Oturuyor' else 'Ayrıldı' end) as YasamDurumu
+		 from Kisiler where ID = @ID
 	end
 	else
 	begin
-		select * from Kisiler
+		select *
+		,(case when [KiraciEvsahibi] = 0 then 'Kiracı' else 'Ev Sahibi' end) as MulkDurumu
+      ,(case when [OturuyorAyrildi] = 0 then 'Oturuyor' else 'Ayrıldı' end) as YasamDurumu
+		 from Kisiler
 	end
 
 END

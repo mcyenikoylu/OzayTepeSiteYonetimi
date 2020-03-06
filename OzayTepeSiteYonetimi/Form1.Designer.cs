@@ -64,6 +64,7 @@
             this.navBarDaireTan = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarOdemeTipiTan = new DevExpress.XtraNavBar.NavBarItem();
             this.cariIslemleriNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarAylikAidat = new DevExpress.XtraNavBar.NavBarItem();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.employeesNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -85,6 +86,8 @@
             this.colDaireGirisTarihi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDaireCikisTarihi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOturuyorAyrildi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.sOdemelerResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -327,7 +330,8 @@
             this.navBarBlokTan,
             this.navBarDaireTan,
             this.navBarOdemeTipiTan,
-            this.navBarBorclandir});
+            this.navBarBorclandir,
+            this.navBarAylikAidat});
             this.navBarControl.Location = new System.Drawing.Point(0, 143);
             this.navBarControl.Name = "navBarControl";
             this.navBarControl.OptionsNavPane.ExpandedWidth = 165;
@@ -412,7 +416,16 @@
             // cariIslemleriNavBarGroup
             // 
             this.cariIslemleriNavBarGroup.Caption = "Cari İşlemler";
+            this.cariIslemleriNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarAylikAidat)});
             this.cariIslemleriNavBarGroup.Name = "cariIslemleriNavBarGroup";
+            // 
+            // navBarAylikAidat
+            // 
+            this.navBarAylikAidat.Caption = "Aidat Raporu (Aylık)";
+            this.navBarAylikAidat.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarAylikAidat.ImageOptions.SmallImage")));
+            this.navBarAylikAidat.Name = "navBarAylikAidat";
+            this.navBarAylikAidat.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarAylikAidat_LinkClicked);
             // 
             // navigationFrame
             // 
@@ -486,7 +499,9 @@
             this.colKayitTarihi,
             this.colDaireGirisTarihi,
             this.colDaireCikisTarihi,
-            this.colOturuyorAyrildi});
+            this.colOturuyorAyrildi,
+            this.gridColumn3,
+            this.gridColumn4});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -578,8 +593,6 @@
             this.colKiraciEvsahibi.Caption = "Kiracı mı?";
             this.colKiraciEvsahibi.FieldName = "KiraciEvsahibi";
             this.colKiraciEvsahibi.Name = "colKiraciEvsahibi";
-            this.colKiraciEvsahibi.Visible = true;
-            this.colKiraciEvsahibi.VisibleIndex = 6;
             // 
             // colKayitTarihi
             // 
@@ -605,8 +618,22 @@
             this.colOturuyorAyrildi.Caption = "Oturuyor mu?";
             this.colOturuyorAyrildi.FieldName = "OturuyorAyrildi";
             this.colOturuyorAyrildi.Name = "colOturuyorAyrildi";
-            this.colOturuyorAyrildi.Visible = true;
-            this.colOturuyorAyrildi.VisibleIndex = 5;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Mülk Durumu";
+            this.gridColumn3.FieldName = "MulkDurumu";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 5;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Yaşam Durumu";
+            this.gridColumn4.FieldName = "YasamDurumu";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 6;
             // 
             // panelControl2
             // 
@@ -664,6 +691,8 @@
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.OptionsView.ShowViewCaption = true;
             this.gridView2.ViewCaption = "Borç Alacak Tablosu";
+            this.gridView2.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView2_CustomDrawCell);
+            this.gridView2.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView2_RowStyle);
             this.gridView2.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView2_FocusedRowChanged);
             this.gridView2.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView2_RowUpdated);
             // 
@@ -899,6 +928,8 @@
             this.pivotGridControl1.Size = new System.Drawing.Size(625, 453);
             this.pivotGridControl1.TabIndex = 0;
             this.pivotGridControl1.FieldValueDisplayText += new DevExpress.XtraPivotGrid.PivotFieldDisplayTextEventHandler(this.pivotGridControl1_FieldValueDisplayText);
+            this.pivotGridControl1.CustomDrawCell += new DevExpress.XtraPivotGrid.PivotCustomDrawCellEventHandler(this.pivotGridControl1_CustomDrawCell);
+            this.pivotGridControl1.CustomAppearance += new DevExpress.XtraPivotGrid.PivotCustomAppearanceEventHandler(this.pivotGridControl1_CustomAppearance);
             // 
             // sCariIslemlerResultBindingSource
             // 
@@ -919,6 +950,7 @@
             this.fieldAy1.Caption = "Ay";
             this.fieldAy1.FieldName = "Ay";
             this.fieldAy1.Name = "fieldAy1";
+            this.fieldAy1.Width = 57;
             // 
             // fieldYil1
             // 
@@ -1009,6 +1041,7 @@
             this.fieldBlokAdi1.Caption = "Blok Adi";
             this.fieldBlokAdi1.FieldName = "BlokAdi";
             this.fieldBlokAdi1.Name = "fieldBlokAdi1";
+            this.fieldBlokAdi1.Width = 85;
             // 
             // fieldDaireNo1
             // 
@@ -1240,5 +1273,8 @@
         private DevExpress.XtraPivotGrid.PivotGridField pivotMulkDurumu;
         private DevExpress.XtraPivotGrid.PivotGridField pivotYasamDurumu;
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraNavBar.NavBarItem navBarAylikAidat;
     }
 }
